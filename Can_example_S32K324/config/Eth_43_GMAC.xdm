@@ -1,0 +1,513 @@
+<?xml version='1.0'?>
+<datamodel version="7.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/16/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/16/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar" 
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd" 
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd" 
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd" 
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd" 
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"  
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="Eth_43_GMAC" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="Eth" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
+            <d:ctr type="MODULE-CONFIGURATION">
+              <a:a name="DEF" value="ASPath:/Eth_43_GMAC_TS_T40D34M30I0R0/Eth"/>
+              <d:var name="POST_BUILD_VARIANT_USED" type="BOOLEAN" value="false"/>
+              <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
+                     value="VariantPreCompile">
+                <a:a name="IMPORTER_INFO" value="@DEF"/>
+              </d:var>
+              <d:ctr name="EthGeneral" type="IDENTIFIABLE">
+                <d:var name="EthDevErrorDetect" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGetDropCountApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGetEtherStatsApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGetCounterValuesApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGetRxStatsApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGetTxStatsApi" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGetTxErrorCounterValuesApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthSendMultiBufferFrameApi" type="BOOLEAN" 
+                       value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthGlobalTimeSupport" type="BOOLEAN" value="false">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthVersionInfoApi" type="BOOLEAN" value="true">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthIndex" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthMainFunctionPeriod" type="FLOAT" value="0.001">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="EthMaxCtrlsSupported" type="INTEGER" value="1">
+                  <a:a name="IMPORTER_INFO">
+                    <a:v>@CALC</a:v>
+                    <a:v>@DEF</a:v>
+                  </a:a>
+                </d:var>
+                <d:var name="EthMaxBuffersInMultiBufferFrame" type="INTEGER" 
+                       value="16">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:lst name="EthEcucPartitionRef"/>
+                <d:ctr name="EthCtrlOffloading" type="IDENTIFIABLE">
+                  <d:var name="EthCtrlEnableOffloadChecksumICMP" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthCtrlEnableOffloadChecksumIPv4" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthCtrlEnableOffloadChecksumTCP" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthCtrlEnableOffloadChecksumUDP" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+                <d:ctr name="EthGeneralVendorSpecific" type="IDENTIFIABLE">
+                  <d:var name="EthDisableDemEventDetect" type="BOOLEAN" 
+                         value="true"/>
+                  <d:var name="EthEnableUserModeSupport" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthMulticoreSupport" type="BOOLEAN" value="false"/>
+                  <d:var name="EthUpdatePhysAddrFilterApi" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthSwtManagementSupportApi" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthCoalescingInterrupt" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthTimeoutMethod" type="ENUMERATION" 
+                         value="OSIF_COUNTER_DUMMY">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthTimeoutDuration" type="INTEGER" value="1000">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                  <d:var name="EthEnableCacheManagement" type="BOOLEAN" 
+                         value="false">
+                    <a:a name="IMPORTER_INFO" value="@DEF"/>
+                  </d:var>
+                </d:ctr>
+              </d:ctr>
+              <d:ctr name="EthConfigSet" type="IDENTIFIABLE">
+                <d:lst name="EthCtrlConfig" type="MAP">
+                  <d:ctr name="EthCtrlConfig_0" type="IDENTIFIABLE">
+                    <d:var name="EthCtrlEnableMii" type="BOOLEAN" value="true"/>
+                    <d:var name="EthCtrlEnableMmd" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="EthCtrlEnableRxInterrupt" type="BOOLEAN" 
+                           value="true">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="EthCtrlEnableTxInterrupt" type="BOOLEAN" 
+                           value="true">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="EthCtrlIdx" type="INTEGER" value="0">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="EthCtrlMacLayerType" type="ENUMERATION" 
+                           value="ETH_MAC_LAYER_TYPE_XMII">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="EthCtrlMacLayerSubType" type="ENUMERATION" 
+                           value="STANDARD">
+                      <a:a name="ENABLE" value="true"/>
+                    </d:var>
+                    <d:var name="EthCtrlMacLayerSpeed" type="ENUMERATION" 
+                           value="ETH_MAC_LAYER_SPEED_100M">
+                      <a:a name="ENABLE" value="true"/>
+                    </d:var>
+                    <d:var name="EthCtrlPhyAddress" type="STRING" 
+                           value="66:55:44:33:22:11">
+                      <a:a name="ENABLE" value="true"/>
+                    </d:var>
+                    <d:ref name="EthCtrlEcucPartitionRef" type="REFERENCE" >
+                      <a:a name="ENABLE" value="false"/>
+                    </d:ref>
+                    <d:ctr name="EthCtrlVendorSpecific" type="IDENTIFIABLE">
+                      <d:ctr name="EthCtrlConfigGeneral" type="IDENTIFIABLE">
+                        <d:var name="EthCtrlEnableAtInit" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthCtrlAllocateTxDataBuffers" 
+                               type="BOOLEAN" value="false"/>
+                        <d:var name="EthCtrlAllocateRxDataBuffers" 
+                               type="BOOLEAN" value="false"/>
+                        <d:var name="EthCtrlEthIfIdx" type="INTEGER" value="0">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthEthTrcvDriverVendorIdAndApiInfix" 
+                               type="STRING" value="">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthEthSwtDriverVendorIdAndApiInfix" 
+                               type="STRING" value="">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthDuplexMode" type="ENUMERATION" 
+                               value="ETH_FULL_DUPLEX">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:ref name="EthModuleReferenceClock" type="REFERENCE" 
+                               value="ASPath:/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/EMAC_CLK_TS"/>
+                        <d:ref name="EthTimeStampReferenceClock" 
+                               type="REFERENCE" >
+                          <a:a name="ENABLE" value="false"/>
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:ref>
+                        <d:var name="EthTimeStampRequiredAccuracy" 
+                               type="INTEGER" value="40">
+                          <a:a name="ENABLE" value="false"/>
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="EthCtrlConfigSafety" type="IDENTIFIABLE">
+                        <d:var name="EthCtrlSafetyCallback" 
+                               type="FUNCTION-NAME" 
+                               value="Eth_Ipw_SafetyIrqCallback">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:ref name="ETH_E_SAFETY" type="REFERENCE" >
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:ref>
+                        <d:var name="EthCtrlEnableEcc" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthCtrlEnableDpp" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthCtrlEnableFsmSpp" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="EthCtrlEnableFsmTimeout" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="EthCtrlConfigMac" type="IDENTIFIABLE">
+                        <d:var name="MAC_CONFIG_CRC_STRIPPING" type="BOOLEAN" 
+                               value="true">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_AUTO_PAD" type="BOOLEAN" 
+                               value="true">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_JUMBO_PKT_EN" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_LOOPBACK" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_ENABLE_CRS_FD" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_DISABLE_RECEIVE_OWN_HD" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_DISABLE_CRS_HD" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_DISABLE_RETRY" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="MAC_CONFIG_DEFERRAL_CHECK_HD" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                      <d:ctr name="EthCtrlConfigPacketFilter" 
+                             type="IDENTIFIABLE">
+                        <d:var name="PKT_FILTER_RECV_ALL" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_HASH_OR_PERFECT_FILTER" 
+                               type="BOOLEAN" value="true">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_BLOCK_CONTROL_PKTS" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_BLOCK_PAUSE_PKTS" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_PASS_ALL_CONTROL_PKTS" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_PASS_CONTROL_PKTS_ADDR_MATCH" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_DISABLE_BROADCAST" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_PASS_ALL_MULTICAST" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_DST_ADDR_INV_FILTER_EN" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_HASH_MULTICAST" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_HASH_UNICAST" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                        <d:var name="PKT_FILTER_PROMISCUOUS_MODE" 
+                               type="BOOLEAN" value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:ctr>
+                    <d:ctr name="EthCtrlConfigEgress" type="IDENTIFIABLE">
+                      <d:ref name="EthCtrlConfigEgressLastSchedulerRef" 
+                             type="REFERENCE" 
+                             value="ASPath:/Eth_43_GMAC/Eth/EthConfigSet/EthCtrlConfig_0/EthCtrlConfigEgress/EthCtrlConfigScheduler_0"/>
+                      <d:lst name="EthCtrlConfigEgressFifo" type="MAP">
+                        <d:ctr name="EthCtrlConfigEgressFifo_0" 
+                               type="IDENTIFIABLE">
+                          <d:var name="EthCtrlConfigEgressFifoBufLenByte" 
+                                 type="INTEGER" value="1536"/>
+                          <d:var name="EthCtrlConfigEgressFifoBufTotal" 
+                                 type="INTEGER" value="4"/>
+                          <d:var name="EthCtrlConfigEgressFifoIdx" 
+                                 type="INTEGER" value="0">
+                            <a:a name="IMPORTER_INFO">
+                              <a:v>@DEF</a:v>
+                              <a:v>@CALC</a:v>
+                            </a:a>
+                          </d:var>
+                          <d:var name="EthCtrlConfigEgressFifoCallback" 
+                                 type="FUNCTION-NAME" value="Eth_TxIrqCallback">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:lst 
+                                 name="EthCtrlConfigEgressFifoPriorityAssignment"/>
+                        </d:ctr>
+                      </d:lst>
+                      <d:lst name="EthCtrlConfigScheduler" type="MAP">
+                        <d:ctr name="EthCtrlConfigScheduler_0" 
+                               type="IDENTIFIABLE">
+                          <d:lst name="EthCtrlConfigSchedulerPredecessor" 
+                                 type="MAP">
+                            <d:ctr name="EthCtrlConfigSchedulerPredecessor_0" 
+                                   type="IDENTIFIABLE">
+                              <d:var 
+                                     name="EthCtrlConfigSchedulerPredecessorOrder" 
+                                     type="INTEGER" value="0">
+                                <a:a name="IMPORTER_INFO" value="@DEF"/>
+                              </d:var>
+                              <d:ref 
+                                     name="EthCtrlConfigSchedulerPredecessorRef" 
+                                     type="REFERENCE" 
+                                     value="ASPath:/Eth_43_GMAC/Eth/EthConfigSet/EthCtrlConfig_0/EthCtrlConfigEgress/EthCtrlConfigEgressFifo_0"/>
+                              <d:ctr 
+                                     name="EthCtrlConfigSchedulerPredecessorVendorSpecific" 
+                                     type="IDENTIFIABLE">
+                                <d:var name="EthQueueBandwidth" type="INTEGER" 
+                                       value="100">
+                                  <a:a name="IMPORTER_INFO">
+                                    <a:v>@DEF</a:v>
+                                    <a:v>@CALC</a:v>
+                                  </a:a>
+                                </d:var>
+                              </d:ctr>
+                            </d:ctr>
+                          </d:lst>
+                          <d:ctr name="EthCtrlConfigSchedulerVendorSpecific" 
+                                 type="IDENTIFIABLE">
+                            <d:var name="EthTxSchedulerAlgorithm" 
+                                   type="ENUMERATION" value="STRICT_PRIORITY">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                            <d:var name="EthTotalPacketsPerCycle" 
+                                   type="INTEGER" value="10">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                            <d:var name="EthTotalQuantumPerCycle" 
+                                   type="INTEGER" value="1000">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                          </d:ctr>
+                        </d:ctr>
+                      </d:lst>
+                      <d:lst name="EthCtrlConfigShaper" type="MAP"/>
+                    </d:ctr>
+                    <d:ctr name="EthCtrlConfigTimeAwareShaper" 
+                           type="IDENTIFIABLE">
+                      <d:lst name="EthCtrlConfigTimeAwareShaper" type="MAP"/>
+                    </d:ctr>
+                    <d:ctr name="EthCtrlConfigIngress" type="IDENTIFIABLE">
+                      <d:lst name="EthCtrlConfigIngressFifo" type="MAP">
+                        <d:ctr name="EthCtrlConfigIngressFifo_0" 
+                               type="IDENTIFIABLE">
+                          <d:var name="EthCtrlConfigIngressFifoBufLenByte" 
+                                 type="INTEGER" value="1536"/>
+                          <d:var name="EthCtrlConfigIngressFifoBufTotal" 
+                                 type="INTEGER" value="4"/>
+                          <d:var name="EthCtrlConfigIngressFifoIdx" 
+                                 type="INTEGER" value="0">
+                            <a:a name="IMPORTER_INFO">
+                              <a:v>@DEF</a:v>
+                              <a:v>@CALC</a:v>
+                            </a:a>
+                          </d:var>
+                          <d:var name="EthCtrlConfigIngressFifoCallback" 
+                                 type="FUNCTION-NAME" value="Eth_RxIrqCallback">
+                            <a:a name="IMPORTER_INFO" value="@DEF"/>
+                          </d:var>
+                          <d:lst 
+                                 name="EthCtrlConfigIngressFifoPriorityAssignment"/>
+                        </d:ctr>
+                      </d:lst>
+                    </d:ctr>
+                    <d:ctr name="EthDemEventParameterRefs" type="IDENTIFIABLE">
+                      <a:a name="ENABLE" value="false"/>
+                      <d:ref name="ETH_E_ACCESS" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_RX_FRAMES_LOST" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_CRC" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_UNDERSIZEFRAME" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_OVERSIZEFRAME" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_ALIGNMENT" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_SINGLECOLLISION" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_MULTIPLECOLLISION" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                      <d:ref name="ETH_E_LATECOLLISION" type="REFERENCE" >
+                        <a:a name="ENABLE" value="false"/>
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                    </d:ctr>
+                    <d:var name="EthCtrlEnableSpiInterface" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="ENABLE" value="false"/>
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="EthCtrlConfigSwBufferHandling" type="BOOLEAN" 
+                           value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:lst name="EthCtrlConfigSpiConfiguration" type="MAP"/>
+                  </d:ctr>
+                </d:lst>
+              </d:ctr>
+              <d:ctr name="CommonPublishedInformation" type="IDENTIFIABLE">
+                <d:var name="ModuleId" type="INTEGER" value="88">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorId" type="INTEGER" value="43">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="VendorApiInfix" type="STRING" value="">
+                  <a:a name="ENABLE" value="false"/>
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseMajorVersion" type="INTEGER" value="4">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseMinorVersion" type="INTEGER" value="7">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="ArReleaseRevisionVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMajorVersion" type="INTEGER" value="3">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwMinorVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+                <d:var name="SwPatchVersion" type="INTEGER" value="0">
+                  <a:a name="IMPORTER_INFO" value="@DEF"/>
+                </d:var>
+              </d:ctr>
+            </d:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+
+</datamodel>
