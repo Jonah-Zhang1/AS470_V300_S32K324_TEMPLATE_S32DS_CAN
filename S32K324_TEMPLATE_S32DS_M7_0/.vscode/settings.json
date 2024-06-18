@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "mcu.h": "c",
+        "xutility": "cpp",
+        "port.h": "c"
+    }
+}

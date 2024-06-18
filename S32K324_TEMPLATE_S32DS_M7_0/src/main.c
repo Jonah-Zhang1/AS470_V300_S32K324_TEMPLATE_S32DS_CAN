@@ -33,7 +33,10 @@ extern "C" {
 #include "Gpt.h"
 #include "CDD_Uart.h"
 #include "Eth_43_GMAC.h"
-#include "String.h"
+#include "Queue.h"
+
+//extern void print(const char *string);
+//extern QueueElemType coutChar(void);
 //#include "check_example.h"
 
 /*==================================================================================================
@@ -54,7 +57,7 @@ extern "C" {
 /*==================================================================================================
 *                                       LOCAL MACROS
 ==================================================================================================*/
-#define UART_CONFIG_CHANNEL_0       (0U)  //zm3 Add 20240613  for UART channel0
+
 
 /*==================================================================================================
 *                                      LOCAL CONSTANTS
@@ -64,36 +67,16 @@ extern "C" {
 /*==================================================================================================
 *                                      LOCAL VARIABLES
 ==================================================================================================*/
-uint8 UartBuffer[200];
-typedef struct
-{
-	uint8 *data;
-	uint16 front;
-	uint16 rear;
 
 
-}Queue_Type;
-
-Queue_Type Q_Uart;
-void Queue_Init(Queue_Type *Q, uint8 *c)
-{
-	Q->data = c;
-	Q->front = 0;
-	Q->rear = 0;
-}
-
-void printf_string(char* c)
-{
-	memcpy(UartBuffer, c, 1);
-}
 /*==================================================================================================
 *                                      GLOBAL CONSTANTS
 ==================================================================================================*/
 
 uint8 Can0_au8Sdu8bytes[8U] = {0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U, 0x08};
-uint8 Can1_au8Sdu8bytes[8U] = {0x11U, 0x222U, 0x33U, 0x44U, 0x55U, 0x66U, 0x7U, 0x88};
-uint8 Uart_au8Sdu8bytes[20U] = {0xaaU, 0xbbU, 0xccU, 0xddU, 0x55U, 0x66U, 0x7U, 0x88};
-uint8 Uart_au8ReceiveData[20] = {0};
+uint8 Can1_au8Sdu8bytes[8U] = {0x11U, 0x22U, 0x33U, 0x44U, 0x55U, 0x66U, 0x7U, 0x88};
+uint8 Uart_au8Sdu8bytes[8U] = {0xaaU, 0xbbU, 0xccU, 0xddU, 0x55U, 0x66U, 0x7U, 0x88};
+uint8 Uart_au8ReceiveData[8U] = {0};
 
 /*==================================================================================================
 *                                      GLOBAL VARIABLES
@@ -119,7 +102,9 @@ PduInfoType TxPdu_Can1 ={
 void Gpt_Pit0_Notification(void)
 {
 //    Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED);
+	uart_cout_task();
     static int high = 0;
+
     if(high == 0)
     {
     	high = 1;
@@ -136,15 +121,17 @@ void Gpt_Pit0_Notification(void)
 
 boolean CanLPduReceiveCallout(uint8 Hrh, Can_IdType CanId, uint8 CanDataLegth, const uint8* CanSduPtr)
 {
+
     static unsigned int high = 0;
     if(high <= 10)
     {
     	high ++;
-        printf_string("Hello World!");//failed to print Hello world!
+//        print("Hello World!");//failed to print Hello world!
     }
     else if((high > 10) && (high <= 20))
     {
     	high ++;
+//    	Uart_SyncReceive(UART_CONFIG_CHANNEL_0, Uart_au8ReceiveData, sizeof(Uart_au8ReceiveData), 10);
 //    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_LOW);
     }
     else
@@ -152,24 +139,30 @@ boolean CanLPduReceiveCallout(uint8 Hrh, Can_IdType CanId, uint8 CanDataLegth, c
 
     	high = 0;
     }
-
+    return true;
 }
+
+extern UartState uartTxEvent;
+extern UartState uartRxEvent;
+
 
 void LPUART_CallBack(uint8 Channel, Uart_EventType Event)
 {
     if(UART_EVENT_RX_FULL == Event)
-    {
-//    	Uart_AsyncSend(UART_CONFIG_CHANNEL_0, Uart_au8Sdu8bytes, sizeof(Uart_au8Sdu8bytes));
+    {        
+        uartRxEvent = UART_RECEIVE_EVENT_COMPLETED;
     	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
     }
     else if(UART_EVENT_TX_EMPTY == Event)
     {
-    	Uart_AsyncReceive(UART_CONFIG_CHANNEL_0,  Uart_au8ReceiveData, sizeof(Uart_au8ReceiveData));
+        //coutChar();
     	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_LOW);
     }
     else if(UART_EVENT_END_TRANSFER == Event)
 	{
-
+        // coutChar();
+        uartTxEvent = UART_COUT_EVENT_COMPLETED;
+        Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
 	}
     else if(UART_EVENT_ERROR == Event)
 	{
@@ -247,6 +240,7 @@ int main(void)
     CanIf_bTxFlag = FALSE;
     CanIf_bRxFlag = FALSE;
     volatile uint8 Eth_ModeChg = 0;
+    
 
     /* Initialize the Mcu driver */
 #if (MCU_PRECOMPILE_SUPPORT == STD_ON)
@@ -305,6 +299,7 @@ int main(void)
     	Eth_ModeChg = 5;
     }
 
+    uart_cout_init();
 
     Can_43_FLEXCAN_SetControllerMode(CanController_0, CAN_CS_STARTED);
     Can_43_FLEXCAN_SetControllerMode(CanController_1, CAN_CS_STARTED);
@@ -352,7 +347,7 @@ int main(void)
         CanIf_Transmit(CanIfTxPduCfg_0, &TxPdu_Can0);
         CanIf_Transmit(CanIfTxPduCfg_1, &TxPdu_Can1);
 
-
+        print("Hello World!");//failed to print Hello world!
 	}
 
     //Exit_Example((CanIf_bTxFlag && CanIf_bRxFlag) == TRUE);

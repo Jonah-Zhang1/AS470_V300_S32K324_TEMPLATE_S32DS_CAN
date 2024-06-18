@@ -97,11 +97,11 @@ extern "C"{
 
 
 /* @brief Support for Internal Loopback. If this parameter has been configured to TRUE, the Uart driver will be executed in Loopback mode. */
-#define LPUART_UART_IP_ENABLE_INTERNAL_LOOPBACK  (STD_ON)
+#define LPUART_UART_IP_ENABLE_INTERNAL_LOOPBACK  (STD_OFF)
 
 #if (STD_ON == LPUART_UART_IP_ENABLE_INTERNAL_LOOPBACK)
     /* @brief Array of instances that have loopback mode enabled. */
-    #define LPUART_UART_IP_ENABLE_INTERNAL_LOOPBACK_PER_INSTANCE  {(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) TRUE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE }
+    #define LPUART_UART_IP_ENABLE_INTERNAL_LOOPBACK_PER_INSTANCE  {(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE,(boolean) FALSE }
 #endif
 
 /*==================================================================================================

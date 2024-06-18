@@ -121,7 +121,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="UartInternalLoopbackEnable" type="BOOLEAN" 
-                             value="true"/>
+                             value="false"/>
                     </d:ctr>
                     <d:ctr name="FlexioModuleConfiguration" type="IDENTIFIABLE">
                       <d:ref name="UartHwChannelRef" type="REFERENCE" >
