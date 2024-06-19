@@ -109,13 +109,13 @@ void Gpt_Pit0_Notification(void)
     {
     	high = 1;
 
-    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_HIGH);
+//    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_HIGH);
     }
     else
     {
     	high = 0;
     	
-    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_LOW);
+//    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_LOW);
     }
 }
 
@@ -123,16 +123,17 @@ boolean CanLPduReceiveCallout(uint8 Hrh, Can_IdType CanId, uint8 CanDataLegth, c
 {
 
     static unsigned int high = 0;
+    print("CanLPduReceiveCallout!\r\n");
     if(high <= 10)
     {
     	high ++;
-//        print("Hello World!");//failed to print Hello world!
+    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
     }
     else if((high > 10) && (high <= 20))
     {
     	high ++;
 //    	Uart_SyncReceive(UART_CONFIG_CHANNEL_0, Uart_au8ReceiveData, sizeof(Uart_au8ReceiveData), 10);
-//    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_LOW);
+    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_LOW);
     }
     else
     {
@@ -151,18 +152,19 @@ void LPUART_CallBack(uint8 Channel, Uart_EventType Event)
     if(UART_EVENT_RX_FULL == Event)
     {        
         uartRxEvent = UART_RECEIVE_EVENT_COMPLETED;
-    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
+//    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
     }
     else if(UART_EVENT_TX_EMPTY == Event)
     {
         //coutChar();
-    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_LOW);
+    	uartTxEvent = UART_COUT_EVENT_COMPLETED;
+//    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_LOW);
     }
     else if(UART_EVENT_END_TRANSFER == Event)
 	{
         // coutChar();
-        uartTxEvent = UART_COUT_EVENT_COMPLETED;
-        Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
+       // uartTxEvent = UART_COUT_EVENT_COMPLETED;
+//        Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
 	}
     else if(UART_EVENT_ERROR == Event)
 	{
@@ -284,19 +286,20 @@ int main(void)
     MCU module shall be initialized before GPT is initialized.*/
 
     Gpt_Init(NULL_PTR);
-    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_PIT0, 20000000);
+    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_PIT0, 1000);
     Gpt_EnableNotification(GptConf_GptChannelConfiguration_GptChannelConfiguration_PIT0);
 
     CanIf_Init(NULL_PTR);
 
     
     Uart_Init(NULL_PTR);
-    Uart_SetBaudrate(UART_CONFIG_CHANNEL_0, UART_BAUDRATE_9600);
+    Uart_SetBaudrate(UART_CONFIG_CHANNEL_0, UART_BAUDRATE_19200);
 
     Eth_43_GMAC_Init(NULL_PTR);
     if(Eth_43_GMAC_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0, ETH_MODE_ACTIVE))
     {
     	Eth_ModeChg = 5;
+    	print("Eth_43_GMAC_SetControllerMode_ETH_MODE_ACTIVE");
     }
 
     uart_cout_init();
@@ -347,7 +350,7 @@ int main(void)
         CanIf_Transmit(CanIfTxPduCfg_0, &TxPdu_Can0);
         CanIf_Transmit(CanIfTxPduCfg_1, &TxPdu_Can1);
 
-        print("Hello World!");//failed to print Hello world!
+//        print("Hello World!\r\n");//success to print Hello world!
 	}
 
     //Exit_Example((CanIf_bTxFlag && CanIf_bRxFlag) == TRUE);

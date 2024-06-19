@@ -146,10 +146,14 @@ static void Uart_Receive(UartState event)
 
 static void uart_cmd(char *pReceivedString, uint8 length)
 {
-    if(strstr(pReceivedString, "led0_on") != 0)  /*check whether "led0_on" in received string*/
+    if(strstr(pReceivedString, "led3_on") != 0)  /*check whether "led0_on" in received string*/
     {
-        Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE, STD_LOW);
+    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_LOW);
     }
+    else if(strstr(pReceivedString, "led3_off") != 0)
+	{
+    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_HIGH);
+	}
 }
 
 void uart_cout_task(void)

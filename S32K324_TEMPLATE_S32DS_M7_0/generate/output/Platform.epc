@@ -2017,7 +2017,7 @@
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrHandler</DEFINITION-REF>
-                      <VALUE>undefined_handler</VALUE>
+                      <VALUE>GMAC0_Common_IRQHandler</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrName</DEFINITION-REF>
@@ -2040,7 +2040,7 @@
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrHandler</DEFINITION-REF>
-                      <VALUE>undefined_handler</VALUE>
+                      <VALUE>GMAC0_CH_TX_IRQHandler</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrName</DEFINITION-REF>
@@ -2063,7 +2063,7 @@
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrHandler</DEFINITION-REF>
-                      <VALUE>undefined_handler</VALUE>
+                      <VALUE>GMAC0_CH_RX_IRQHandler</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrName</DEFINITION-REF>
@@ -2086,7 +2086,7 @@
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrHandler</DEFINITION-REF>
-                      <VALUE>undefined_handler</VALUE>
+                      <VALUE>GMAC0_Safety_IRQHandler</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrName</DEFINITION-REF>

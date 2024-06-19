@@ -1663,9 +1663,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
-                             value="undefined_handler">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                             value="GMAC0_Common_IRQHandler"/>
                     </d:ctr>
                     <d:ctr name="PlatformIsrConfig_84" type="IDENTIFIABLE">
                       <d:var name="IsrName" type="ENUMERATION" 
@@ -1682,9 +1680,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
-                             value="undefined_handler">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                             value="GMAC0_CH_TX_IRQHandler"/>
                     </d:ctr>
                     <d:ctr name="PlatformIsrConfig_85" type="IDENTIFIABLE">
                       <d:var name="IsrName" type="ENUMERATION" 
@@ -1701,9 +1697,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
-                             value="undefined_handler">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                             value="GMAC0_CH_RX_IRQHandler"/>
                     </d:ctr>
                     <d:ctr name="PlatformIsrConfig_86" type="IDENTIFIABLE">
                       <d:var name="IsrName" type="ENUMERATION" 
@@ -1720,9 +1714,7 @@
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
-                             value="undefined_handler">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                             value="GMAC0_Safety_IRQHandler"/>
                     </d:ctr>
                     <d:ctr name="PlatformIsrConfig_87" type="IDENTIFIABLE">
                       <d:var name="IsrName" type="ENUMERATION" 

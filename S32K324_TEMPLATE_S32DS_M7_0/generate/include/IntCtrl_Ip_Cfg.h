@@ -79,6 +79,10 @@ extern const IntCtrl_Ip_CtrlConfigType intCtrlConfig;
  */
 extern void undefined_handler(void);
 extern void PIT_0_ISR(void);
+extern void GMAC0_Common_IRQHandler(void);
+extern void GMAC0_CH_TX_IRQHandler(void);
+extern void GMAC0_CH_RX_IRQHandler(void);
+extern void GMAC0_Safety_IRQHandler(void);
 extern void CAN0_ORED_IRQHandler(void);
 extern void CAN0_ORED_0_31_MB_IRQHandler(void);
 extern void CAN0_ORED_32_63_MB_IRQHandler(void);

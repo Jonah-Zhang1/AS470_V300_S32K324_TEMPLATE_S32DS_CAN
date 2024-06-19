@@ -300,7 +300,7 @@
                             </ECUC-NUMERICAL-PARAM-VALUE>
                             <ECUC-NUMERICAL-PARAM-VALUE>
                               <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlVendorSpecific/EthCtrlConfigMac/MAC_CONFIG_LOOPBACK</DEFINITION-REF>
-                              <VALUE>0</VALUE>
+                              <VALUE>1</VALUE>
                             </ECUC-NUMERICAL-PARAM-VALUE>
                           </PARAMETER-VALUES>
                         </ECUC-CONTAINER-VALUE>

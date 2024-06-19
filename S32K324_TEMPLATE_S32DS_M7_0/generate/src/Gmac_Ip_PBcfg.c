@@ -226,7 +226,7 @@ static const Gmac_Ip_ConfigType GMAC_0_InitConfigPB =
     /*.txSchedAlgo = */GMAC_SCHED_ALGO_SP,
     /*.speed = */GMAC_SPEED_100M,
     /*.duplex = */GMAC_FULL_DUPLEX,
-    /*.macConfig = */0U | (uint32)GMAC_MAC_CONFIG_CRC_STRIPPING | (uint32)GMAC_MAC_CONFIG_AUTO_PAD,
+    /*.macConfig = */0U | (uint32)GMAC_MAC_CONFIG_CRC_STRIPPING | (uint32)GMAC_MAC_CONFIG_AUTO_PAD | (uint32)GMAC_MAC_CONFIG_LOOPBACK,
     /*.macPktFilterConfig = */0U | (uint32)GMAC_PKT_FILTER_HASH_OR_PERFECT_FILTER,
     /*.enableCtrl = */(boolean)FALSE
 };

@@ -243,9 +243,7 @@
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
                         <d:var name="MAC_CONFIG_LOOPBACK" type="BOOLEAN" 
-                               value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                               value="true"/>
                         <d:var name="MAC_CONFIG_ENABLE_CRS_FD" type="BOOLEAN" 
                                value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
