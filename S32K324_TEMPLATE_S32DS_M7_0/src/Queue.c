@@ -2,22 +2,20 @@
 
 
 
-Queue_t uartCoutQueue;
+SqQueue User_UartTranmsitQueue;
+SqQueue User_UartReceiveQueue;
 
-static UartState enumUartReceiveState = CMD_RECEIVED;
-char uartRxBuf[UART_RX_BUFFER_SIZE];
-uint8 uartCoutBuffer[UART_TX_MAX_SIZE];
-static UartState emunUartSendState = UART_PREPARE_TO_SEND_DATA;
+char User_UartReceiveBuffer[UART_RX_BUFFER_SIZE];
+uint8 User_UartTransmitBuffer[UART_TX_BUFFER_SIZE];
 
-UartState uartTxEvent = UART_PREPARE_TO_SEND_DATA;
-UartState uartRxEvent = UART_COUT_EVENT_NOTHING;
-uint16 coutI = 0;
+static UartState enumUartReceiveState = UART_BEGIN_TO_RECEIVED;
+static UartState emunUartTransmitState = UART_BEGIN_TO_TRANSMIT;
 
-static void uart_cmd(char *pReceivedString, uint8 length);
+UartState uartTxEvent = UART_BEGIN_TO_TRANSMIT;
+UartState uartRxEvent = UART_RECEIVE_NOTHING;
+static uint16 TransmitElementsNum = 0;
 
-
-
-
+static void User_UartReceiveCmd(char *pReceivedString);
 
 /***********************
  * Q: Pointer to Queue object
@@ -25,126 +23,74 @@ static void uart_cmd(char *pReceivedString, uint8 length);
  * item: how many Byte in an item
  * size: how many item
  */
-void queueCreat(Queue_t *Q, uint8 *buf, uint16 itemNum, uint16 size)
+
+
+
+void InitQueue(SqQueue *Q, uint8 *buf, uint16 wholeBytesInBuffer)
 {
     Q->data = buf;
-    memset(Q->data, 0, size*itemNum);
-
-    Q->front = 0;
-    Q->rear = 0;
-    Q->itemNum = itemNum;
-    Q->itemSize = size;
-
-
-}
-
-bool isFullQueue(Queue_t *Q)
-{
-    return ((Q->rear +1) % (Q->itemNum) == Q->front)? true : false;
-}
-
-void writeQueue(Queue_t *Q, uint8 *val)
-{
-    if(isFullQueue(Q))
-    {
-
-    }
-    else
-    {
-        if(1== Q->itemSize)
-        {
-            Q->rear = (Q->rear + 1) % (Q->itemNum);
-            Q->data[Q->rear] = *val;
-        }
-        else
-        {
-            // Q->rear = (Q->rear + Q->itemSize) % (Q->itemNum);
-            // memcpy(&Q->data[Q->rear * Q->itemSize], val, Q->itemSize);
-        }
-        // Q->rear = (Q->rear) % (Q->itemNum);
-    }
-}
-
-bool isEmptyQueue(Queue_t *Q)
-{
-    if(Q->front == ((Q->rear) % Q->itemNum))
-        return true;
-    else
-        return false;
-}
-
-bool readQueue(Queue_t *Q, uint8 *val)
-{
-    bool fValue = false;
-    if(isEmptyQueue(Q))
-    {
-        fValue = false;
-    }
-    else
-    {
-        fValue = true;
-        if(1 ==  Q->itemSize)
-        {
-            Q->front = (Q->front + 1) % (Q->itemNum);
-            *val = Q->data[Q->front];
-        }
-        else
-        {
-            //memcpy(val, &Q->data[Q->front * Q->itemSize], Q->itemSize);
-        }
-        // Q->front = (Q->front + 1) % (Q->itemNum);
-    }
-    return fValue;
+	Q->front = 0;
+	Q->rear = 0;
+    Q->wholeBytesInBuffer = wholeBytesInBuffer;
+    Q->bytesNumOfElement = sizeof(QueueElemType);
 }
 
 
-
-
-void uart_cout_init(void)
+Std_ReturnType SqQueue_IsFull(SqQueue *Q)
 {
-    queueCreat(&uartCoutQueue, uartCoutBuffer, UART_TX_MAX_SIZE, 1);
+    return ((Q->rear +1) % (Q->wholeBytesInBuffer) == Q->front)? E_OK : E_NOT_OK;
 }
 
 
-static void uart_cout_char(char* c)
+Std_ReturnType SqQueue_IsEmpty(SqQueue *Q)
 {
-    writeQueue(&uartCoutQueue, (uint8 *)c);
+    return (Q->front == Q->rear)? E_OK : E_NOT_OK;
 }
 
-
-void print(const char *string)
+Std_ReturnType SqQueue_Push(SqQueue *Q, const QueueElemType *Val)
 {
-	uint8 len = strlen(string);
-	for(int i = 0; i< len; i++)
+    uint8 *bytePtr = (uint8*)Val;
+	if(SqQueue_IsFull(Q) == E_OK)
 	{
-		uart_cout_char(&string[i]);
+		return E_NOT_OK;;
+	}
+    else
+    {            
+        for(uint8 i = 0;i < Q->bytesNumOfElement; i++)
+        {
+            Q->rear = (Q->rear + 1) % (Q->wholeBytesInBuffer);
+            Q->data[Q->rear] = bytePtr[i];
+        }        
+        return E_OK;
+    }
+}
+
+Std_ReturnType SqQueue_Pop(SqQueue *Q, QueueElemType *Val)
+{
+    uint8 *bytePtr = (uint8*)Val;
+    if(SqQueue_IsEmpty(Q) == E_OK)
+	{
+		return E_NOT_OK;
+	}
+	else
+	{
+		for(uint8 i = 0;i < Q->bytesNumOfElement; i++)
+        {
+            Q->front = (Q->front + 1) % (Q->wholeBytesInBuffer);
+	        bytePtr[i] = Q->data[Q->front];
+        }
+		return E_OK;
 	}
 }
 
-static void Uart_Receive(UartState event)
+void User_UartInit(void)
 {
-    switch(enumUartReceiveState)
-    {
-        case CMD_RECEIVED:
-            Uart_AsyncReceive(UART_CONFIG_CHANNEL_0, (uint8 *)uartRxBuf, sizeof(uartRxBuf));
-            enumUartReceiveState = WAIT_FOR_RECEIVE;
-            break;
-        case WAIT_FOR_RECEIVE:
-            if(event == UART_RECEIVE_EVENT_COMPLETED )
-            {
-                uart_cmd(uartRxBuf,strlen(uartRxBuf));
-                memset(uartRxBuf, 0, sizeof(uartRxBuf));
-                enumUartReceiveState = CMD_RECEIVED;//begin next receive
-                uartRxEvent = UART_COUT_EVENT_NOTHING;
-            }
-            break;
-
-        default:
-            break;
-    }
+    InitQueue(&User_UartTranmsitQueue, User_UartTransmitBuffer, UART_TX_BUFFER_SIZE);
+    InitQueue(&User_UartReceiveQueue, (uint8*)User_UartReceiveBuffer, UART_RX_BUFFER_SIZE);
 }
 
-static void uart_cmd(char *pReceivedString, uint8 length)
+
+static void User_UartReceiveCmd(char *pReceivedString)
 {
     if(strstr(pReceivedString, "led3_on") != 0)  /*check whether "led0_on" in received string*/
     {
@@ -156,215 +102,70 @@ static void uart_cmd(char *pReceivedString, uint8 length)
 	}
 }
 
-void uart_cout_task(void)
+#define NUM_TRANSMIT_MAX_ONCE 100
+void User_UartTask(void)
 {
-    switch (emunUartSendState)
+    /*************Transmit Task************************* */
+    SqQueue *Q = &User_UartTranmsitQueue;
+    QueueElemType elems[NUM_TRANSMIT_MAX_ONCE];//At most Transmit 100 elements
+    switch (emunUartTransmitState)
     {
-        case UART_PREPARE_TO_SEND_DATA:
-            for(uint16 i = 0; i< UART_TX_MAX_SIZE;)
+        case UART_BEGIN_TO_TRANSMIT:
+            while((SqQueue_IsEmpty(Q) == E_NOT_OK) && (TransmitElementsNum < NUM_TRANSMIT_MAX_ONCE))
             {
-                if(readQueue(&uartCoutQueue, &uartCoutBuffer[i]))
+                if(SqQueue_Pop(Q, &elems[TransmitElementsNum]) == E_OK)
                 {
-                    coutI = ++i;
+                    TransmitElementsNum ++;
                 }
-                else
-                {
-                    break;
-                }
-            }            
-
-            if(coutI >0)
+            }
+        
+            if(TransmitElementsNum > 0)
             {
-                Uart_AsyncSend(UART_CONFIG_CHANNEL_0, uartCoutBuffer, coutI);
-                emunUartSendState = UART_WAIT_SEND_COMPLETED;
+                Uart_AsyncSend(UART_CONFIG_CHANNEL_0, (uint8*)elems, TransmitElementsNum * Q->bytesNumOfElement);
+                emunUartTransmitState = UART_WAIT_FOR_SEND_COMPLETED;
             }   
             break; 
         
-        case UART_WAIT_SEND_COMPLETED:
-            if(uartTxEvent == UART_COUT_EVENT_COMPLETED)
+        case UART_WAIT_FOR_SEND_COMPLETED:
+            if(uartTxEvent == UART_TRANSMIT_EVENT_COMPLETED)
             {
-                coutI = 0;
-                emunUartSendState = UART_PREPARE_TO_SEND_DATA;
+                TransmitElementsNum = 0;
+                emunUartTransmitState = UART_BEGIN_TO_TRANSMIT;
             }
             break;
 
         default:
             break;
     }
-    Uart_Receive(uartRxEvent);
 
-    
-    
+    /*************Receive Task************************* */
+    switch(enumUartReceiveState)
+    {
+        case UART_BEGIN_TO_RECEIVED:
+            Uart_AsyncReceive(UART_CONFIG_CHANNEL_0, (uint8 *)User_UartReceiveBuffer, sizeof(User_UartReceiveBuffer));
+            enumUartReceiveState = UART_WAITING_FOR_RECEIVE;
+            break;
+        case UART_WAITING_FOR_RECEIVE:
+            if(uartRxEvent == UART_RECEIVE_EVENT_COMPLETED )
+            {
+                User_UartReceiveCmd(User_UartReceiveBuffer);
+                memset(User_UartReceiveBuffer, 0, sizeof(User_UartReceiveBuffer));
+                enumUartReceiveState = UART_BEGIN_TO_RECEIVED;//begin next receive
+                uartRxEvent = UART_RECEIVE_NOTHING;
+            }
+            break;
+
+        default:
+            break;
+    }
+
 }
 
-/****************************下面是我的代码 没有成功把串口数据发出来********************************************* */
-// typedef struct 
-// {
-//     /* data */
-//     QueueElemType  data[SQ_QUEUE_MAX_SIZE];
-// 	uint16 front;
-// 	uint16 rear;
-// }SqQueue;
-
-
-// static SqQueue UartQueue;
-
-
-
-
-// void InitQueue(SqQueue *Q);
-
-
-// Std_ReturnType SqQueue_IsEmpty(SqQueue *Q);
-
-
-// Std_ReturnType SqQueue_IsFull(SqQueue *Q);
-
-
-// Std_ReturnType SqQueue_Push(SqQueue *Q, const QueueElemType *Val);
-
-
-// Std_ReturnType SqQueue_Pop(SqQueue *Q, QueueElemType *Val);
-
-
-// Std_ReturnType SqQueue_GetFrontElem(SqQueue *Q, QueueElemType *Val);
-
-
-// Std_ReturnType SqQueue_GetRearElem(SqQueue *Q, QueueElemType *Val);
-
-
-
-
-
-
-// /************************************************************ */
-
-
-// void coutChar()
-// {
-// 	QueueElemType c;
-// 	if(SqQueue_Pop(&UartQueue, &c) != QUEUE_STATE_EMPTY)
-// 	{
-// 		Uart_AsyncSend(UART_CONFIG_CHANNEL_0, &c, 1);
-// 	}
-
-// }
-
-
-// void print(const char *string)
-// {
-// 	uint8 lenStr = strlen(string);
-// 	for(uint8 i = 0; i < lenStr; i++)
-// 	{
-// 		if(SqQueue_Push(&UartQueue, string) != QUEUE_STATE_FULL)
-// 		{
-// 			string ++;
-// 		}
-// 		else
-// 		{
-// 			return;
-// 		}
-
-// 	}
-// //	coutChar();
-// }
-
-
-
-// /********************************************* */
-
-// void InitQueue(SqQueue *Q)
-// {
-// 	Q->front = 0;
-// 	Q->rear = 0;
-// }
-
-
-// void DestroyQueue(SqQueue *Q)
-// {
-// 	Q->front = 0;
-// 	Q->rear = 0;
-// }
-
-
-// Std_ReturnType SqQueue_IsEmpty(SqQueue *Q)
-// {
-
-// 	return (Q->front == Q->rear)? E_OK : E_NOT_OK;
-// }
-
-
-// Std_ReturnType SqQueue_IsFull(SqQueue *Q)
-// {
-	
-// 	return ((Q->rear +1) % SQ_QUEUE_MAX_SIZE == Q->front)? E_OK : E_NOT_OK;
-// }
-
-
-// Std_ReturnType SqQueue_Push(SqQueue *Q, const QueueElemType *Val)
-// {
-	
-// 	if(SqQueue_IsFull(Q) == E_OK)
-// 	{
-// 		return QUEUE_STATE_FULL;
-// 	}
-// 	else
-// 	{
-		
-// 		Q->rear = (Q->rear + 1) % SQ_QUEUE_MAX_SIZE;
-// 		Q->data[Q->rear] = *Val;
-// 		return E_OK;
-// 	}
-// }
-
-
-// Std_ReturnType SqQueue_Pop(SqQueue *Q, QueueElemType *Val)
-// {
-	
-// 	if(SqQueue_IsEmpty(Q) == E_OK)
-// 	{
-// 		return QUEUE_STATE_EMPTY;
-// 	}
-// 	else
-// 	{
-		
-// 		Q->front = (Q->front + 1) % SQ_QUEUE_MAX_SIZE;
-// 		*Val = Q->data[Q->front];
-// 		return E_OK;
-// 	}
-// }
-
-
-// Std_ReturnType SqQueue_GetFrontElem(SqQueue *Q, QueueElemType *Val)
-// {
-
-// 	if(SqQueue_IsEmpty(Q) == E_OK)
-// 	{
-// 		return QUEUE_STATE_EMPTY;
-// 	}
-// 	else
-// 	{
-// 		QueueElemType temp = Q->front + 1;
-// 		*Val = Q->data[temp];
-// 		return E_OK;
-// 	}
-// }
-
-
-// Std_ReturnType SqQueue_GetRearElem(SqQueue *Q, QueueElemType *Val)
-// {
-
-// 	if(SqQueue_IsEmpty(Q) == E_OK)
-// 	{
-// 		return QUEUE_STATE_EMPTY;
-// 	}
-// 	else
-// 	{	
-// 		*Val = Q->data[Q->rear];
-// 		return E_OK;
-// 	}
-// }
-
-
-
-
+void User_UartPrintString(const char *string)
+{
+    uint16 len = strlen(string);
+    for(uint16 i = 0; i < len; i++)
+    {
+        SqQueue_Push(&User_UartTranmsitQueue, (uint8*)(&string[i]));
+    }       
+}

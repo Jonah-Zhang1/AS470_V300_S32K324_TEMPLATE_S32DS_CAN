@@ -16,40 +16,44 @@
 
 
 
-#define UART_RX_BUFFER_SIZE  (200U)
+#define UART_RX_BUFFER_SIZE     (200U)
 
-#define UART_TX_MAX_SIZE     (200U)
+#define UART_TX_BUFFER_SIZE     (200U)
 
 typedef enum
 {
-    CMD_RECEIVED = 0,
-    WAIT_FOR_RECEIVE,
+    UART_BEGIN_TO_RECEIVED = 0,
+    UART_WAITING_FOR_RECEIVE,
 
     UART_RECEIVE_EVENT_COMPLETED,
-    
-    UART_COUT_EVENT_NOTHING,
-    UART_COUT_EVENT_COMPLETED,
+    UART_RECEIVE_NOTHING,
 
-    UART_PREPARE_TO_SEND_DATA,
-    UART_WAIT_SEND_COMPLETED
+    UART_TRANSMIT_EVENT_COMPLETED,
+
+    UART_BEGIN_TO_TRANSMIT,
+    UART_WAIT_FOR_SEND_COMPLETED
 }UartState;
 
-
-void print(const char *string);
-
-void uart_cout_init(void);
-void uart_cout_task(void);
-
-// typedef char QueueElemType;
+/**************************************
+ * elem type: you  can choose uint8/uint16 or stuct and so on
+ ***************************************/
 typedef uint8 QueueElemType;
+
+void User_UartPrintString(const char *string);
+
+void User_UartInit(void);
+void User_UartTask(void);
+
 
 typedef struct queue
 {
     uint8 *data;
     volatile uint16 front;
     volatile uint16 rear;
-    uint16 itemNum;
-    uint16 itemSize;
-}Queue_t;
+    uint16 wholeBytesInBuffer;//how many bytes in the whole buffer
+    uint16 bytesNumOfElement;//how many bytes in an element
+}SqQueue;
+
+
 
 #endif/*#ifndef _QUEUE_H*/
