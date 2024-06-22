@@ -18,7 +18,7 @@
           <d:chc name="Eth" type="AR-ELEMENT" value="MODULE-CONFIGURATION">
             <d:ctr type="MODULE-CONFIGURATION">
               <a:a name="DEF" value="ASPath:/Eth_43_GMAC_TS_T40D34M30I0R0/Eth"/>
-              <d:var name="POST_BUILD_VARIANT_USED" type="BOOLEAN" value="false"/>
+              <d:var name="POST_BUILD_VARIANT_USED" type="BOOLEAN" value="true"/>
               <d:var name="IMPLEMENTATION_CONFIG_VARIANT" type="ENUMERATION" 
                      value="VariantPreCompile">
                 <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -33,20 +33,11 @@
                 <d:var name="EthGetEtherStatsApi" type="BOOLEAN" value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:var>
-                <d:var name="EthGetCounterValuesApi" type="BOOLEAN" 
-                       value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
-                <d:var name="EthGetRxStatsApi" type="BOOLEAN" value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
-                <d:var name="EthGetTxStatsApi" type="BOOLEAN" value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                <d:var name="EthGetCounterValuesApi" type="BOOLEAN" value="true"/>
+                <d:var name="EthGetRxStatsApi" type="BOOLEAN" value="true"/>
+                <d:var name="EthGetTxStatsApi" type="BOOLEAN" value="true"/>
                 <d:var name="EthGetTxErrorCounterValuesApi" type="BOOLEAN" 
-                       value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                       value="true"/>
                 <d:var name="EthSendMultiBufferFrameApi" type="BOOLEAN" 
                        value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -101,9 +92,7 @@
                   </d:var>
                   <d:var name="EthMulticoreSupport" type="BOOLEAN" value="false"/>
                   <d:var name="EthUpdatePhysAddrFilterApi" type="BOOLEAN" 
-                         value="false">
-                    <a:a name="IMPORTER_INFO" value="@DEF"/>
-                  </d:var>
+                         value="true"/>
                   <d:var name="EthSwtManagementSupportApi" type="BOOLEAN" 
                          value="false">
                     <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -243,7 +232,7 @@
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
                         <d:var name="MAC_CONFIG_LOOPBACK" type="BOOLEAN" 
-                               value="true"/>
+                               value="false"/>
                         <d:var name="MAC_CONFIG_ENABLE_CRS_FD" type="BOOLEAN" 
                                value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -268,9 +257,7 @@
                       <d:ctr name="EthCtrlConfigPacketFilter" 
                              type="IDENTIFIABLE">
                         <d:var name="PKT_FILTER_RECV_ALL" type="BOOLEAN" 
-                               value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                               value="true"/>
                         <d:var name="PKT_FILTER_HASH_OR_PERFECT_FILTER" 
                                type="BOOLEAN" value="true">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -284,9 +271,7 @@
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
                         <d:var name="PKT_FILTER_PASS_ALL_CONTROL_PKTS" 
-                               type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                               type="BOOLEAN" value="true"/>
                         <d:var name="PKT_FILTER_PASS_CONTROL_PKTS_ADDR_MATCH" 
                                type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -340,7 +325,11 @@
                             <a:a name="IMPORTER_INFO" value="@DEF"/>
                           </d:var>
                           <d:lst 
-                                 name="EthCtrlConfigEgressFifoPriorityAssignment"/>
+                                 name="EthCtrlConfigEgressFifoPriorityAssignment">
+                            <d:var type="INTEGER" value="0">
+                              <a:a name="IMPORTER_INFO" value="@DEF"/>
+                            </d:var>
+                          </d:lst>
                         </d:ctr>
                       </d:lst>
                       <d:lst name="EthCtrlConfigScheduler" type="MAP">

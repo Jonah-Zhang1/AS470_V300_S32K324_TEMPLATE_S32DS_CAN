@@ -7,6 +7,7 @@
 #include "Dio.h"
 
 #define UART_CONFIG_CHANNEL_0       (0U)  //zm3 Add 20240613  for UART channel0
+#define NUM_TRANSMIT_MAX_ONCE        (100U)
 
 #define   QUEUE_STATE_FULL       0xA1
 #define   QUEUE_STATE_EMPTY      0xA2
@@ -18,7 +19,7 @@
 
 #define UART_RX_BUFFER_SIZE     (200U)
 
-#define UART_TX_BUFFER_SIZE     (200U)
+#define UART_TX_BUFFER_SIZE     (2048U)
 
 typedef enum
 {

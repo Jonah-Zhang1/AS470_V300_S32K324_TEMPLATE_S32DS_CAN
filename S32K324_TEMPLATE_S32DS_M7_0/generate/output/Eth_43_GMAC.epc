@@ -10,7 +10,7 @@
           <SHORT-NAME>Eth</SHORT-NAME>
           <DEFINITION-REF DEST="ECUC-MODULE-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth</DEFINITION-REF>
           <IMPLEMENTATION-CONFIG-VARIANT>VARIANT-PRE-COMPILE</IMPLEMENTATION-CONFIG-VARIANT>
-          <POST-BUILD-VARIANT-USED>false</POST-BUILD-VARIANT-USED>
+          <POST-BUILD-VARIANT-USED>true</POST-BUILD-VARIANT-USED>
           <CONTAINERS>
             <ECUC-CONTAINER-VALUE>
               <SHORT-NAME>CommonPublishedInformation</SHORT-NAME>
@@ -128,6 +128,10 @@
                             </ECUC-TEXTUAL-PARAM-VALUE>
                             <ECUC-NUMERICAL-PARAM-VALUE>
                               <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlConfigEgress/EthCtrlConfigEgressFifo/EthCtrlConfigEgressFifoIdx</DEFINITION-REF>
+                              <VALUE>0</VALUE>
+                            </ECUC-NUMERICAL-PARAM-VALUE>
+                            <ECUC-NUMERICAL-PARAM-VALUE>
+                              <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlConfigEgress/EthCtrlConfigEgressFifo/EthCtrlConfigEgressFifoPriorityAssignment</DEFINITION-REF>
                               <VALUE>0</VALUE>
                             </ECUC-NUMERICAL-PARAM-VALUE>
                           </PARAMETER-VALUES>
@@ -300,7 +304,7 @@
                             </ECUC-NUMERICAL-PARAM-VALUE>
                             <ECUC-NUMERICAL-PARAM-VALUE>
                               <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlVendorSpecific/EthCtrlConfigMac/MAC_CONFIG_LOOPBACK</DEFINITION-REF>
-                              <VALUE>1</VALUE>
+                              <VALUE>0</VALUE>
                             </ECUC-NUMERICAL-PARAM-VALUE>
                           </PARAMETER-VALUES>
                         </ECUC-CONTAINER-VALUE>
@@ -338,7 +342,7 @@
                             </ECUC-NUMERICAL-PARAM-VALUE>
                             <ECUC-NUMERICAL-PARAM-VALUE>
                               <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlVendorSpecific/EthCtrlConfigPacketFilter/PKT_FILTER_PASS_ALL_CONTROL_PKTS</DEFINITION-REF>
-                              <VALUE>0</VALUE>
+                              <VALUE>1</VALUE>
                             </ECUC-NUMERICAL-PARAM-VALUE>
                             <ECUC-NUMERICAL-PARAM-VALUE>
                               <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlVendorSpecific/EthCtrlConfigPacketFilter/PKT_FILTER_PASS_ALL_MULTICAST</DEFINITION-REF>
@@ -354,7 +358,7 @@
                             </ECUC-NUMERICAL-PARAM-VALUE>
                             <ECUC-NUMERICAL-PARAM-VALUE>
                               <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthConfigSet/EthCtrlConfig/EthCtrlVendorSpecific/EthCtrlConfigPacketFilter/PKT_FILTER_RECV_ALL</DEFINITION-REF>
-                              <VALUE>0</VALUE>
+                              <VALUE>1</VALUE>
                             </ECUC-NUMERICAL-PARAM-VALUE>
                           </PARAMETER-VALUES>
                         </ECUC-CONTAINER-VALUE>
@@ -405,7 +409,7 @@
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGetCounterValuesApi</DEFINITION-REF>
-                  <VALUE>0</VALUE>
+                  <VALUE>1</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGetDropCountApi</DEFINITION-REF>
@@ -417,15 +421,15 @@
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGetRxStatsApi</DEFINITION-REF>
-                  <VALUE>0</VALUE>
+                  <VALUE>1</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGetTxErrorCounterValuesApi</DEFINITION-REF>
-                  <VALUE>0</VALUE>
+                  <VALUE>1</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGetTxStatsApi</DEFINITION-REF>
-                  <VALUE>0</VALUE>
+                  <VALUE>1</VALUE>
                 </ECUC-NUMERICAL-PARAM-VALUE>
                 <ECUC-NUMERICAL-PARAM-VALUE>
                   <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGlobalTimeSupport</DEFINITION-REF>
@@ -517,7 +521,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/Eth_43_GMAC_TS_T40D34M30I0R0/Eth/EthGeneral/EthGeneralVendorSpecific/EthUpdatePhysAddrFilterApi</DEFINITION-REF>
-                      <VALUE>0</VALUE>
+                      <VALUE>1</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                   </PARAMETER-VALUES>
                 </ECUC-CONTAINER-VALUE>

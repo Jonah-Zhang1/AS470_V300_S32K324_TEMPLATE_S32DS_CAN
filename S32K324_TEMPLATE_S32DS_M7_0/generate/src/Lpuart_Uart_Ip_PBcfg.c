@@ -157,11 +157,11 @@ const Lpuart_Uart_Ip_UserConfigType Lpuart_Uart_Ip_xHwConfigPB_0 =
 {
 
     /*!< Baud rate in hertz */
-    19212U,
+    115942U,
     /* Baud clock divisor*/
-    347U,
+    15U,
     /* Over sampling ratio*/
-    6U,
+    23U,
     /* Parity type */
     LPUART_UART_IP_PARITY_DISABLED,
     /* Number of stop bits, 1 stop bit (default) or 2 stop bits */

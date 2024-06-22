@@ -202,7 +202,7 @@ static const Gmac_Ip_TxRingConfigType GMAC_0_aTxRingConfigPB[1U] =
         /*.interrupts = */(uint32)GMAC_CH_INTERRUPT_TI,
         /*.bufferLen = */1536U,
         /*.ringSize = */4U,
-        /*.priorityMask = */0U,
+        /*.priorityMask = */(uint8)GMAC_VLAN_PRIORITY_0,
         /*.dmaBurstLength = */32U,
         /*.queueOpMode = */GMAC_OP_MODE_DCB_GEN
     }
@@ -226,8 +226,8 @@ static const Gmac_Ip_ConfigType GMAC_0_InitConfigPB =
     /*.txSchedAlgo = */GMAC_SCHED_ALGO_SP,
     /*.speed = */GMAC_SPEED_100M,
     /*.duplex = */GMAC_FULL_DUPLEX,
-    /*.macConfig = */0U | (uint32)GMAC_MAC_CONFIG_CRC_STRIPPING | (uint32)GMAC_MAC_CONFIG_AUTO_PAD | (uint32)GMAC_MAC_CONFIG_LOOPBACK,
-    /*.macPktFilterConfig = */0U | (uint32)GMAC_PKT_FILTER_HASH_OR_PERFECT_FILTER,
+    /*.macConfig = */0U | (uint32)GMAC_MAC_CONFIG_CRC_STRIPPING | (uint32)GMAC_MAC_CONFIG_AUTO_PAD,
+    /*.macPktFilterConfig = */0U | (uint32)GMAC_PKT_FILTER_RECV_ALL | (uint32)GMAC_PKT_FILTER_HASH_OR_PERFECT_FILTER | (uint32)GMAC_PKT_FILTER_PASS_ALL_CONTROL_PKTS,
     /*.enableCtrl = */(boolean)FALSE
 };
 

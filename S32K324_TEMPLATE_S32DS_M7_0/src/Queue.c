@@ -1,5 +1,5 @@
 #include "Queue.h"
-
+#include "main.h"
 
 
 SqQueue User_UartTranmsitQueue;
@@ -13,7 +13,6 @@ static UartState emunUartTransmitState = UART_BEGIN_TO_TRANSMIT;
 
 UartState uartTxEvent = UART_BEGIN_TO_TRANSMIT;
 UartState uartRxEvent = UART_RECEIVE_NOTHING;
-static uint16 TransmitElementsNum = 0;
 
 static void User_UartReceiveCmd(char *pReceivedString);
 
@@ -102,10 +101,11 @@ static void User_UartReceiveCmd(char *pReceivedString)
 	}
 }
 
-#define NUM_TRANSMIT_MAX_ONCE 100
+
 void User_UartTask(void)
 {
     /*************Transmit Task************************* */
+	static uint16 TransmitElementsNum = 0;
     SqQueue *Q = &User_UartTranmsitQueue;
     QueueElemType elems[NUM_TRANSMIT_MAX_ONCE];//At most Transmit 100 elements
     switch (emunUartTransmitState)
@@ -163,9 +163,13 @@ void User_UartTask(void)
 
 void User_UartPrintString(const char *string)
 {
+	IRQ_DISENABLE;//disable all interrupt
+
     uint16 len = strlen(string);
     for(uint16 i = 0; i < len; i++)
     {
         SqQueue_Push(&User_UartTranmsitQueue, (uint8*)(&string[i]));
-    }       
+    }
+
+    IRQ_ENABLE;//enable all interrupt
 }

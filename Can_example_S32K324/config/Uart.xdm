@@ -79,7 +79,7 @@
                       <d:var name="UartHwChannel" type="ENUMERATION" 
                              value="LPUART_6"/>
                       <d:var name="DesireBaudrate" type="ENUMERATION" 
-                             value="LPUART_UART_BAUDRATE_19200"/>
+                             value="LPUART_UART_BAUDRATE_115200"/>
                       <d:var name="CustomBaudrateMantissa" type="INTEGER" 
                              value="1">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>

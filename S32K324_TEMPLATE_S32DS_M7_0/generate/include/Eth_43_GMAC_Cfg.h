@@ -142,19 +142,19 @@ extern "C"{
 #define ETH_43_GMAC_VERSION_INFO_API            (STD_ON)
 
 /*! @brief Enables / Disables Eth_43_GMAC_UpdatePhysAddrFilter API */
-#define ETH_43_GMAC_UPDATE_PHYS_ADDR_FILTER_API (STD_OFF)
+#define ETH_43_GMAC_UPDATE_PHYS_ADDR_FILTER_API (STD_ON)
 
 /*! @brief Enables / Disables Eth_43_GMAC_GetCounterValues API */
-#define ETH_43_GMAC_GET_COUNTER_API             (STD_OFF)
+#define ETH_43_GMAC_GET_COUNTER_API             (STD_ON)
 
 /*! @brief Enables / Disables Eth_43_GMAC_GetTxStats API */
-#define ETH_43_GMAC_GET_TXSTATS_API             (STD_OFF)
+#define ETH_43_GMAC_GET_TXSTATS_API             (STD_ON)
 
 /*! @brief Enables / Disables Eth_43_GMAC_GetRxStats API */
-#define ETH_43_GMAC_GET_RXSTATS_API             (STD_OFF)
+#define ETH_43_GMAC_GET_RXSTATS_API             (STD_ON)
 
 /*! @brief Enables / Disables Eth_43_GMAC_GetTxErrorCounterValues API */
-#define ETH_43_GMAC_GET_TXERROR_COUNTER_API     (STD_OFF)
+#define ETH_43_GMAC_GET_TXERROR_COUNTER_API     (STD_ON)
 
 /*! @brief Enables / Disables the GlobalTime APIs used amongst others by Global Time Synchronization over Ethernet */
 #define ETH_43_GMAC_GLOBAL_TIME_API             (STD_OFF)

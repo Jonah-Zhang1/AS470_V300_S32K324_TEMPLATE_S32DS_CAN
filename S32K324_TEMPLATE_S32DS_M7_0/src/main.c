@@ -122,7 +122,7 @@ boolean CanLPduReceiveCallout(uint8 Hrh, Can_IdType CanId, uint8 CanDataLegth, c
 {
 
     static unsigned int high = 0;
-    User_UartPrintString("CanLPduReceiveCallout!\r\n");
+    User_UartPrintString("CanLPduReceive_Callout!\r\n");
     if(high <= 10)
     {
     	high ++;
@@ -162,7 +162,7 @@ void LPUART_CallBack(uint8 Channel, Uart_EventType Event)
     else if(UART_EVENT_END_TRANSFER == Event)
 	{
         // coutChar();
-       // uartTxEvent = UART_TRANSMIT_EVENT_COMPLETED;
+          uartTxEvent = UART_TRANSMIT_EVENT_COMPLETED;
 //        Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTB18_LED4_YELLOW, STD_HIGH);
 	}
     else if(UART_EVENT_ERROR == Event)
@@ -242,7 +242,7 @@ int main(void)
     CanIf_bRxFlag = FALSE;
     volatile uint8 Eth_ModeChg = 0;
     
-
+    Port_Init(NULL_PTR);
     /* Initialize the Mcu driver */
 #if (MCU_PRECOMPILE_SUPPORT == STD_ON)
     Mcu_Init(NULL_PTR);
@@ -263,7 +263,7 @@ int main(void)
 
     Mcu_SetMode(McuModeSettingConf_0);
 
-    Port_Init(NULL_PTR);
+//    Port_Init(NULL_PTR);
 
     /*platform need to to be initialed after MCU Module     20240527*/
 
@@ -292,16 +292,14 @@ int main(void)
 
     
     Uart_Init(NULL_PTR);
-    Uart_SetBaudrate(UART_CONFIG_CHANNEL_0, UART_BAUDRATE_19200);
+    User_UartInit();
 
     Eth_43_GMAC_Init(NULL_PTR);
-    if(Eth_43_GMAC_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0, ETH_MODE_ACTIVE))
+    if(Eth_43_GMAC_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0, ETH_MODE_ACTIVE) == E_OK)
     {
     	Eth_ModeChg = 5;
     	User_UartPrintString("Eth_43_GMAC_SetControllerMode_ETH_MODE_ACTIVE");
     }
-
-    User_UartInit();
 
     Can_43_FLEXCAN_SetControllerMode(CanController_0, CAN_CS_STARTED);
     Can_43_FLEXCAN_SetControllerMode(CanController_1, CAN_CS_STARTED);

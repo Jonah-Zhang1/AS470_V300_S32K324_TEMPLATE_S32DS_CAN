@@ -142,7 +142,7 @@
                         </ECUC-NUMERICAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Uart/UartGlobalConfig/UartChannel/DetailModuleConfiguration/DesireBaudrate</DEFINITION-REF>
-                          <VALUE>LPUART_UART_BAUDRATE_19200</VALUE>
+                          <VALUE>LPUART_UART_BAUDRATE_115200</VALUE>
                         </ECUC-TEXTUAL-PARAM-VALUE>
                         <ECUC-TEXTUAL-PARAM-VALUE>
                           <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Uart/UartGlobalConfig/UartChannel/DetailModuleConfiguration/UartHwChannel</DEFINITION-REF>
