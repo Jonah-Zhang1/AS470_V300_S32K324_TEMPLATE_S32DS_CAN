@@ -93,18 +93,18 @@ void User_UartInit(void)
 
 static void User_UartReceiveCmd(char *pReceivedString)
 {
-    if(strstr(pReceivedString, "led3_on") != 0)  /*check whether "led0_on" in received string*/
+    if(strstr(pReceivedString, "led3_on") != NULL)  /*check whether "led0_on" in received string*/
     {
     	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_LOW);
     }
-    else if(strstr(pReceivedString, "led3_off") != 0)
+    else if(strstr(pReceivedString, "led3_off") != NULL)
 	{
     	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA31_LED3_RED, STD_HIGH);
 	}
 }
 
 
-void User_UartTask(void)
+void User_Uart_TransmitTask(void)
 {
     /*************Transmit Task************************* */
 	uint16 TransmitElementsNum = 0;
@@ -145,7 +145,9 @@ void User_UartTask(void)
         default:
             break;
     }
-
+}
+void User_Uart_ReceiveTask(void)
+{
     /*************Receive Task************************* */
     switch(enumUartReceiveCmd)
     {
@@ -154,7 +156,7 @@ void User_UartTask(void)
             enumUartReceiveCmd = UART_WAITING_FOR_RECEIVE;
             break;
         case UART_WAITING_FOR_RECEIVE:
-            if(UART_RECEIVE_EVENT_COMPLETED == uartRxEvent )
+            if(UART_RECEIVE_EVENT_COMPLETED == uartRxEvent)
             {
                 User_UartReceiveCmd(User_UartReceiveBuffer);
                 memset(User_UartReceiveBuffer, 0, sizeof(User_UartReceiveBuffer));
@@ -167,6 +169,12 @@ void User_UartTask(void)
             break;
     }
 
+}
+
+void  User_UartTask(void)
+{
+	User_Uart_TransmitTask();
+	User_Uart_ReceiveTask();
 }
 
 void User_UartPrintString(const char *string)

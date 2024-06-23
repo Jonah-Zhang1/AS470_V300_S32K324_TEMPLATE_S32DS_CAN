@@ -101,6 +101,33 @@ extern "C"{
  *================================================================================================*/
  #define GPT_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Gpt_MemMap.h"
+const Stm_Ip_InstanceConfigType STM_0_InitConfig_PB = 
+{
+    /* Freeze bit */
+    (boolean)(FALSE), /* Freeze Disable */
+    #if(STM_IP_SET_CLOCK_MODE == STD_ON)
+    /* Prescaler Value */
+    0U,
+    #endif
+    /* Prescaler Value */
+    39U
+};
+
+const Stm_Ip_ChannelConfigType STM_0_ChannelConfig_PB[1U] = 
+{
+    /** @brief GptStmChannels_0 */
+    {
+        /** @brief STM Channel Id */
+        0U,
+        /** @brief STM callback name */
+        &Gpt_ProcessCommonInterrupt,
+        /** @brief STM callbackparam */
+        (uint8)1U,
+        /** @brief STM channel mode */
+        STM_IP_CH_MODE_CONTINUOUS
+    }
+};
+
 #define GPT_STOP_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Gpt_MemMap.h"
 /*==================================================================================================

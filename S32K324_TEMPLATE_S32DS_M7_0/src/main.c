@@ -72,6 +72,7 @@ uint8 CanIf_u8TxConfirmCnt = 0U;
 boolean CanIf_bTxFlag = FALSE;
 uint8 CanIf_u8RxIndicationCnt = 0U;
 boolean CanIf_bRxFlag = FALSE;
+uint32 t1ms_clk = 0;
 
 /************canIf_Transmit case hard fault**********************/
 // PduInfoType TxPdu_Can0 ={
@@ -84,32 +85,94 @@ boolean CanIf_bRxFlag = FALSE;
 //    .SduLength = sizeof(Can1_au8Sdu8bytes)
 //};
 /*********************************************************************/
-//
-//PduInfoType TxPdu_Can0 ={
-//    Can0_au8Sdu8bytes,
-//	(uint8)(LENGTH_CAN_SDU)
-//};
-//
-// PduInfoType TxPdu_Can1 ={
-//    Can1_au8Sdu8bytes,
-//    LENGTH_CAN_SDU
-//};
+void Can_DummyDelay(uint32 loops);
 
 /*==================================================================================================
 *                                   LOCAL FUNCTION PROTOTYPES
 ==================================================================================================*/
 
+
+
+void Task_1ms(void)
+{
+    t1ms_clk++;
+}
+
+/*1ms Interrupt*/    
+void Gpt_Stm0_Notification(void)
+{
+//    Task_1ms();
+}
+
 void Gpt_Pit0_Notification(void)
 {
-	User_UartTask();
+	Task_1ms();
+}
+
+void Task_100ms(void)
+{
+    PduInfoType TxPdu_Can0 ={
+        Can0_au8Sdu8bytes,
+    	sizeof(Can0_au8Sdu8bytes)
+    };
+
+    PduInfoType TxPdu_Can1 ={
+        Can1_au8Sdu8bytes,
+        sizeof(Can1_au8Sdu8bytes)
+    };
+		Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN);
+
+		//Can_DummyDelay(0xfff);
+//		Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE, STD_LOW);
+//		Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN, STD_LOW);
+		//Can_DummyDelay(0xfff);
+
+		/*the code below cause: hardfault*/
+       CanIf_Transmit(CanIfTxPduCfg_0, &TxPdu_Can0);
+       CanIf_Transmit(CanIfTxPduCfg_1, &TxPdu_Can1);
+}
+
+void Task_10ms(void)
+{
+    User_UartTask();
     Eth_43_GMAC_MainFunction();
+}
+
+void Task_1000ms(void)
+{
+	Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE);
+	Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN);
+}
+
+
+void TaskSchedule(void)
+{
+
+    if(t1ms_clk % 1000 == 0)
+    {
+    	Task_1000ms();
+    }
+
+//    if(t1ms_clk % 100 == 0 )
+//    {
+//        Task_100ms();
+//    }
+//
+//    if(t1ms_clk % 10 == 0)
+//    {
+//    	 Task_10ms();
+//    }
+//    else
+//    {
+//
+//    }
 }
 
 boolean CanLPduReceiveCallout(uint8 Hrh, Can_IdType CanId, uint8 CanDataLegth, const uint8* CanSduPtr)
 {
 
     static unsigned int high = 0;
-    User_UartPrintString("CanLPduReceive_Callout!\r\n");
+    //User_UartPrintString("CanLPduReceive_Callout!\r\n");
     if(high <= 10)
     {
     	high ++;
@@ -209,17 +272,10 @@ int main(void)
     CanIf_bTxFlag = FALSE;
     CanIf_bRxFlag = FALSE;
     volatile uint8 Eth_ModeChg = 0;
-    PduInfoType TxPdu_Can0 ={
-        Can0_au8Sdu8bytes,
-    	sizeof(Can0_au8Sdu8bytes)
-    };
-
-     PduInfoType TxPdu_Can1 ={
-        Can1_au8Sdu8bytes,
-        sizeof(Can1_au8Sdu8bytes)
-    };
     
+    /***Port_Init() need before Mcu_Init(), otherwise Ethernet cannot run normally****/
     Port_Init(NULL_PTR);
+
     /* Initialize the Mcu driver */
 #if (MCU_PRECOMPILE_SUPPORT == STD_ON)
     Mcu_Init(NULL_PTR);
@@ -258,9 +314,13 @@ int main(void)
     MCU module shall be initialized before GPT is initialized.*/
 
     Gpt_Init(NULL_PTR);
-    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_PIT0, 1000);
+    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_PIT0, 40000);//the last pram is how many ticks before timeout
+    //Frequence is 40MHz, so One tick is 0.025us, 40000~1ms    400000~10ms     40000000~1s
     Gpt_EnableNotification(GptConf_GptChannelConfiguration_GptChannelConfiguration_PIT0);
 
+    /**STM0 can not run normally*/
+    Gpt_StartTimer(GptConf_GptChannelConfiguration_GptChannelConfiguration_STM0, 1000);
+    Gpt_EnableNotification(GptConf_GptChannelConfiguration_GptChannelConfiguration_STM0);
 
     CanIf_Init(NULL_PTR);
 
@@ -282,19 +342,8 @@ int main(void)
 
 	while(true)
 	{
-		Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE);
-		Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN);
-
-		Can_DummyDelay(0xfff);
-		Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE, STD_LOW);
-		Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN, STD_LOW);
-		Can_DummyDelay(0xfff);
-
-		/*the code below cause: hardfault*/
-       CanIf_Transmit(CanIfTxPduCfg_0, &TxPdu_Can0);
-       CanIf_Transmit(CanIfTxPduCfg_1, &TxPdu_Can1);
-
-       User_UartPrintString("Hello World!\r\n");//success to User_UartPrintString Hello world!
+       TaskSchedule();
+       //User_UartPrintString("Hello World!\r\n");//success to User_UartPrintString Hello world!
 	}
 
     return (0U);

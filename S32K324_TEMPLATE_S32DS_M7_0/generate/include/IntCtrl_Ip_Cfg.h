@@ -78,6 +78,7 @@ extern const IntCtrl_Ip_CtrlConfigType intCtrlConfig;
  * NOTE: For application specific handlers, these functions must be implemented in the application code!
  */
 extern void undefined_handler(void);
+extern void STM_0_ISR(void);
 extern void PIT_0_ISR(void);
 extern void GMAC0_Common_IRQHandler(void);
 extern void GMAC0_CH_TX_IRQHandler(void);

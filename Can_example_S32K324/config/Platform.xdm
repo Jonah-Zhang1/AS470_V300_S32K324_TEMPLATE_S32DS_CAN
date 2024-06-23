@@ -842,16 +842,12 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
-                             value="undefined_handler">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                             value="STM_0_ISR"/>
                     </d:ctr>
                     <d:ctr name="PlatformIsrConfig_40" type="IDENTIFIABLE">
                       <d:var name="IsrName" type="ENUMERATION" value="STM1_IRQn">
@@ -1588,9 +1584,7 @@
                         </a:a>
                       </d:var>
                       <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
-                      <d:var name="IsrPriority" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                      <d:var name="IsrPriority" type="INTEGER" value="0"/>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
                              value="PIT_0_ISR"/>
                     </d:ctr>
@@ -2116,7 +2110,7 @@
                         </a:a>
                       </d:var>
                       <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
-                      <d:var name="IsrPriority" type="INTEGER" value="5"/>
+                      <d:var name="IsrPriority" type="INTEGER" value="0"/>
                       <d:var name="IsrHandler" type="FUNCTION-NAME" 
                              value="LPUART_UART_IP_6_IRQHandler"/>
                     </d:ctr>

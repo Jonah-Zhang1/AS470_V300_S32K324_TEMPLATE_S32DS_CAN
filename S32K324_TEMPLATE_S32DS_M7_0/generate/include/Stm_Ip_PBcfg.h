@@ -86,6 +86,8 @@ extern "C"
 #define GPT_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Gpt_MemMap.h"
 
+extern const Stm_Ip_InstanceConfigType STM_0_InitConfig_PB;
+extern const Stm_Ip_ChannelConfigType STM_0_ChannelConfig_PB[1U];
 
 
 #define GPT_STOP_SEC_CONFIG_DATA_UNSPECIFIED

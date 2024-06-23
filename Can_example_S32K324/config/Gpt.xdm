@@ -47,7 +47,7 @@
                       </a:a>
                     </d:var>
                     <d:ref name="GptChannelClkSrcRef" type="REFERENCE" 
-                           value="ASPath:/Gpt/Gpt/GptDriverConfiguration/GptClockReferencePoint_0"/>
+                           value="ASPath:/Gpt/Gpt/GptDriverConfiguration/GptClock_PIT"/>
                     <d:var name="GptChannelTickValueMax" type="INTEGER" 
                            value="4294967295">
                       <a:a name="IMPORTER_INFO">
@@ -60,6 +60,50 @@
                     </d:var>
                     <d:var name="GptNotification" type="FUNCTION-NAME" 
                            value="Gpt_Pit0_Notification">
+                      <a:a name="ENABLE" value="true"/>
+                    </d:var>
+                    <d:ctr name="GptWakeupConfiguration" type="IDENTIFIABLE">
+                      <a:a name="ENABLE" value="false"/>
+                      <d:ref name="GptWakeupSourceRef" type="REFERENCE" >
+                        <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      </d:ref>
+                    </d:ctr>
+                  </d:ctr>
+                  <d:ctr name="GptChannelConfiguration_STM0" 
+                         type="IDENTIFIABLE">
+                    <d:var name="GptChannelId" type="INTEGER" value="1">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@DEF</a:v>
+                        <a:v>@CALC</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:lst name="GptChannelEcucPartitionRef"/>
+                    <d:var name="GptHwIp" type="ENUMERATION" value="STM"/>
+                    <d:ref name="GptModuleRef" type="REFERENCE" 
+                           value="ASPath:/Gpt/Gpt/GptChannelConfigSet/GptStm_0/GptStmChannels_0"/>
+                    <d:var name="GptChannelMode" type="ENUMERATION" 
+                           value="GPT_CH_MODE_CONTINUOUS"/>
+                    <d:var name="GptChannelTickFrequency" type="FLOAT" 
+                           value="1000000.0">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@CALC</a:v>
+                        <a:v>@DEF</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:ref name="GptChannelClkSrcRef" type="REFERENCE" 
+                           value="ASPath:/Gpt/Gpt/GptDriverConfiguration/GptClock_STM0"/>
+                    <d:var name="GptChannelTickValueMax" type="INTEGER" 
+                           value="4294967295">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@DEF</a:v>
+                        <a:v>@CALC</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="GptEnableWakeup" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="GptNotification" type="FUNCTION-NAME" 
+                           value="Gpt_Stm0_Notification">
                       <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:ctr name="GptWakeupConfiguration" type="IDENTIFIABLE">
@@ -88,7 +132,39 @@
                     </d:lst>
                   </d:ctr>
                 </d:lst>
-                <d:lst name="GptStm" type="MAP"/>
+                <d:lst name="GptStm" type="MAP">
+                  <d:ctr name="GptStm_0" type="IDENTIFIABLE">
+                    <d:var name="GptStmModule" type="ENUMERATION" value="STM_0">
+                      <a:a name="IMPORTER_INFO">
+                        <a:v>@DEF</a:v>
+                        <a:v>@CALC</a:v>
+                      </a:a>
+                    </d:var>
+                    <d:var name="GptStmPrescaler" type="INTEGER" value="40"/>
+                    <d:var name="GptStmAlternatePrescaler" type="INTEGER" 
+                           value="1">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:var name="StmFreezeEnable" type="BOOLEAN" value="false">
+                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                    </d:var>
+                    <d:lst name="GptStmChannels" type="MAP">
+                      <d:ctr name="GptStmChannels_0" type="IDENTIFIABLE">
+                        <d:var name="GptStmChannel" type="ENUMERATION" 
+                               value="CH_0">
+                          <a:a name="IMPORTER_INFO">
+                            <a:v>@DEF</a:v>
+                            <a:v>@CALC</a:v>
+                          </a:a>
+                        </d:var>
+                        <d:var name="StmAbsoluteCounting" type="BOOLEAN" 
+                               value="false">
+                          <a:a name="IMPORTER_INFO" value="@DEF"/>
+                        </d:var>
+                      </d:ctr>
+                    </d:lst>
+                  </d:ctr>
+                </d:lst>
                 <d:lst name="GptRtc" type="MAP"/>
                 <d:lst name="GptEmios" type="MAP"/>
               </d:ctr>
@@ -100,8 +176,8 @@
                       <a:v>@CALC</a:v>
                     </a:a>
                   </d:var>
-                  <d:var name="GptIsrEnable" type="BOOLEAN" value="false"/>
-                  <d:var name="GptChannelIsUsed" type="BOOLEAN" value="false"/>
+                  <d:var name="GptIsrEnable" type="BOOLEAN" value="true"/>
+                  <d:var name="GptChannelIsUsed" type="BOOLEAN" value="true"/>
                 </d:ctr>
                 <d:ctr name="GptHwConfiguration_1" type="IDENTIFIABLE">
                   <d:var name="GptIsrHwId" type="ENUMERATION" value="STM_0_CH_1">
@@ -834,9 +910,13 @@
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:ref>
                 <d:lst name="GptClockReferencePoint" type="MAP">
-                  <d:ctr name="GptClockReferencePoint_0" type="IDENTIFIABLE">
+                  <d:ctr name="GptClock_PIT" type="IDENTIFIABLE">
                     <d:ref name="GptClockReference" type="REFERENCE" 
                            value="ASPath:/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/AIPS_SLOW_CLK"/>
+                  </d:ctr>
+                  <d:ctr name="GptClock_STM0" type="IDENTIFIABLE">
+                    <d:ref name="GptClockReference" type="REFERENCE" 
+                           value="ASPath:/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/STM0_CLK"/>
                   </d:ctr>
                 </d:lst>
               </d:ctr>

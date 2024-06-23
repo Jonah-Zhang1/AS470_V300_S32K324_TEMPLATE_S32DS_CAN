@@ -75,13 +75,10 @@ FUNC(Std_ReturnType, ETH_PUBLIC_CODE) Ethernet_Init
 
     if(Eth_43_GMAC_SetControllerMode(EthConf_EthCtrlConfig_EthCtrlConfig_0, ETH_MODE_ACTIVE) == E_OK)
     {
-        //for(uint8 i = 0; i < 4; i++)
-    	while(1)
+        for(uint8 i = 0; i < 4; i++)
         {
             TranmitArpFrame();
             delay(1);
-             Eth_43_GMAC_Receive(0, 0, &RxStatus);
-             Eth_43_GMAC_TxConfirmation(0);
             User_UartPrintString("Eth_43_GMAC_SetControllerMode_ETH_MODE_ACTIVE!\r\n");
         }
     	

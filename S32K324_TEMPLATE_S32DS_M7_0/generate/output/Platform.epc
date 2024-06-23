@@ -1001,11 +1001,11 @@
                   <PARAMETER-VALUES>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-BOOLEAN-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrEnabled</DEFINITION-REF>
-                      <VALUE>0</VALUE>
+                      <VALUE>1</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-FUNCTION-NAME-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrHandler</DEFINITION-REF>
-                      <VALUE>undefined_handler</VALUE>
+                      <VALUE>STM_0_ISR</VALUE>
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-TEXTUAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-ENUMERATION-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrName</DEFINITION-REF>
@@ -2646,7 +2646,7 @@
                     </ECUC-TEXTUAL-PARAM-VALUE>
                     <ECUC-NUMERICAL-PARAM-VALUE>
                       <DEFINITION-REF DEST="ECUC-INTEGER-PARAM-DEF">/TS_T40D34M30I0R0/Platform/IntCtrlConfig/PlatformIsrConfig/IsrPriority</DEFINITION-REF>
-                      <VALUE>5</VALUE>
+                      <VALUE>0</VALUE>
                     </ECUC-NUMERICAL-PARAM-VALUE>
                   </PARAMETER-VALUES>
                 </ECUC-CONTAINER-VALUE>

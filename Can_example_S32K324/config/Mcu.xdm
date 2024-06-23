@@ -1344,6 +1344,17 @@
                         <d:var name="McuClockFrequencySelect" 
                                type="ENUMERATION" value="AIPS_SLOW_CLK"/>
                       </d:ctr>
+                      <d:ctr name="STM0_CLK" type="IDENTIFIABLE">
+                        <d:var name="McuClockReferencePointFrequency" 
+                               type="FLOAT" value="4.0E7">
+                          <a:a name="IMPORTER_INFO">
+                            <a:v>@CALC</a:v>
+                            <a:v>@DEF</a:v>
+                          </a:a>
+                        </d:var>
+                        <d:var name="McuClockFrequencySelect" 
+                               type="ENUMERATION" value="STM0_CLK"/>
+                      </d:ctr>
                     </d:lst>
                     <d:ctr name="McuFXOSC" type="IDENTIFIABLE">
                       <a:a name="IMPORTER_INFO" value="Unknown"/>
@@ -2418,12 +2429,7 @@
                             </a:a>
                           </d:var>
                           <d:var name="McuPeripheralClockEnable" type="BOOLEAN" 
-                                 value="false">
-                            <a:a name="IMPORTER_INFO">
-                              <a:v>@DEF</a:v>
-                              <a:v>@CALC</a:v>
-                            </a:a>
-                          </d:var>
+                                 value="true"/>
                         </d:ctr>
                         <d:ctr name="McuPeripheral_33" type="IDENTIFIABLE">
                           <d:var name="McuPeripheralName" type="ENUMERATION" 
