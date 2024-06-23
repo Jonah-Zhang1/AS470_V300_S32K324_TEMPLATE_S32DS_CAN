@@ -80,8 +80,8 @@ FUNC(Std_ReturnType, ETH_PUBLIC_CODE) Ethernet_Init
         {
             TranmitArpFrame();
             delay(1);
-            Eth_43_GMAC_Receive(0, 0, &RxStatus);
-            Eth_43_GMAC_TxConfirmation(0);
+             Eth_43_GMAC_Receive(0, 0, &RxStatus);
+             Eth_43_GMAC_TxConfirmation(0);
             User_UartPrintString("Eth_43_GMAC_SetControllerMode_ETH_MODE_ACTIVE!\r\n");
         }
     	
