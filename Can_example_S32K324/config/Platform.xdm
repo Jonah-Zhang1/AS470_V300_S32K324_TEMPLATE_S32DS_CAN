@@ -1656,9 +1656,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
@@ -1673,9 +1671,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
@@ -1690,9 +1686,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
@@ -1707,9 +1701,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
@@ -1829,7 +1821,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="false"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
@@ -1846,7 +1838,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="false"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>
@@ -1863,7 +1855,7 @@
                           <a:v>@CALC</a:v>
                         </a:a>
                       </d:var>
-                      <d:var name="IsrEnabled" type="BOOLEAN" value="true"/>
+                      <d:var name="IsrEnabled" type="BOOLEAN" value="false"/>
                       <d:var name="IsrPriority" type="INTEGER" value="0">
                         <a:a name="IMPORTER_INFO" value="@DEF"/>
                       </d:var>

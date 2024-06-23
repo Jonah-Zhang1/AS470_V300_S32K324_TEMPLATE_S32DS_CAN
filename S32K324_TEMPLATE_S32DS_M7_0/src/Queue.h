@@ -7,7 +7,7 @@
 #include "Dio.h"
 
 #define UART_CONFIG_CHANNEL_0       (0U)  //zm3 Add 20240613  for UART channel0
-#define NUM_TRANSMIT_MAX_ONCE        (100U)
+#define NUM_TRANSMIT_MAX_ONCE        (2048U)
 
 #define   QUEUE_STATE_FULL       0xA1
 #define   QUEUE_STATE_EMPTY      0xA2
@@ -26,15 +26,25 @@ typedef enum
     UART_BEGIN_TO_RECEIVED = 0,
     UART_WAITING_FOR_RECEIVE,
 
-    UART_RECEIVE_EVENT_COMPLETED,
+}UartReceiveCmd;
+
+typedef enum
+{
     UART_RECEIVE_NOTHING,
+    UART_RECEIVE_EVENT_COMPLETED    
+}UartReceiveEventState;
 
-    UART_TRANSMIT_EVENT_COMPLETED,
-
+typedef enum
+{
     UART_BEGIN_TO_TRANSMIT,
-    UART_WAIT_FOR_SEND_COMPLETED
-}UartState;
+    UART_WAIT_FOR_TRANSMIT_COMPLETED
+}UartTransmitCmd;
 
+typedef enum
+{
+    UART_TRANSMIT_NOTHING,
+    UART_TRANSMIT_EVENT_COMPLETED,
+}UartTransmitEventState;
 /**************************************
  * elem type: you  can choose uint8/uint16 or stuct and so on
  ***************************************/

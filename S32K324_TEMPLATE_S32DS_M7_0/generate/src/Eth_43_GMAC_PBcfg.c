@@ -196,7 +196,7 @@ static const Eth_43_GMAC_ClockCfgType Eth_43_GMAC_aClockConfigPB[1U] =
     
     /* The configuration structure for Eth_43_GMAC_aClockConfigPB[0U] - IP_0 */
     {
-        25000000U, /* Frequency of the application interface (in Hz) */
+        50000000U, /* Frequency of the application interface (in Hz) */
         0U, /* Number of picoseconds in a PTP clock period */
         0U  /* Number of nanoseconds in a PTP clock period for the required accuracy */
     }

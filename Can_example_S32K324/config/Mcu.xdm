@@ -742,9 +742,9 @@
                         <d:var name="McuClkMux7Div0_En" type="BOOLEAN" 
                                value="true"/>
                         <d:var name="McuClkMux7Div0_Divisor" type="INTEGER" 
-                               value="1"/>
+                               value="0"/>
                         <d:var name="McuClockMux7Divider0_Frequency" 
-                               type="FLOAT" value="2.5E7">
+                               type="FLOAT" value="5.0E7">
                           <a:a name="IMPORTER_INFO">
                             <a:v>@CALC</a:v>
                             <a:v>@DEF</a:v>
@@ -761,14 +761,9 @@
                         <d:var name="McuClkMux8Div0_En" type="BOOLEAN" 
                                value="true"/>
                         <d:var name="McuClkMux8Div0_Divisor" type="INTEGER" 
-                               value="1"/>
+                               value="0"/>
                         <d:var name="McuClockMux8Divider0_Frequency" 
-                               type="FLOAT" value="2.5E7">
-                          <a:a name="IMPORTER_INFO">
-                            <a:v>@CALC</a:v>
-                            <a:v>@DEF</a:v>
-                          </a:a>
-                        </d:var>
+                               type="FLOAT" value="5.0E7"/>
                       </d:ctr>
                       <d:ctr name="McuCgm0ClockMux9" type="IDENTIFIABLE">
                         <d:var name="McuClockMuxUnderMcuControl" type="BOOLEAN" 
@@ -782,9 +777,9 @@
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
                         <d:var name="McuClkMux9Div0_Divisor" type="INTEGER" 
-                               value="1"/>
+                               value="0"/>
                         <d:var name="McuClockMux9Divider0_Frequency" 
-                               type="FLOAT" value="2.5E7"/>
+                               type="FLOAT" value="5.0E7"/>
                       </d:ctr>
                       <d:ctr name="McuCgm0ClockMux10" type="IDENTIFIABLE">
                         <d:var name="McuClockMuxUnderMcuControl" type="BOOLEAN" 
@@ -1305,7 +1300,7 @@
                       </d:ctr>
                       <d:ctr name="EMAC_CLK_TS" type="IDENTIFIABLE">
                         <d:var name="McuClockReferencePointFrequency" 
-                               type="FLOAT" value="2.5E7">
+                               type="FLOAT" value="5.0E7">
                           <a:a name="IMPORTER_INFO">
                             <a:v>@CALC</a:v>
                             <a:v>@DEF</a:v>

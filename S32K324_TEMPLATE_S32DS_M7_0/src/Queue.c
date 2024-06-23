@@ -8,11 +8,13 @@ SqQueue User_UartReceiveQueue;
 char User_UartReceiveBuffer[UART_RX_BUFFER_SIZE];
 uint8 User_UartTransmitBuffer[UART_TX_BUFFER_SIZE];
 
-static UartState enumUartReceiveState = UART_BEGIN_TO_RECEIVED;
-static UartState emunUartTransmitState = UART_BEGIN_TO_TRANSMIT;
+static UartReceiveCmd enumUartReceiveCmd = UART_BEGIN_TO_RECEIVED;
+static UartTransmitCmd emunUartTransmitCmd = UART_BEGIN_TO_TRANSMIT;
 
-UartState uartTxEvent = UART_BEGIN_TO_TRANSMIT;
-UartState uartRxEvent = UART_RECEIVE_NOTHING;
+UartTransmitEventState uartTxEvent = UART_TRANSMIT_NOTHING;
+UartReceiveEventState uartRxEvent = UART_RECEIVE_NOTHING;
+
+uint16 count = 0;
 
 static void User_UartReceiveCmd(char *pReceivedString);
 
@@ -51,7 +53,7 @@ Std_ReturnType SqQueue_Push(SqQueue *Q, const QueueElemType *Val)
     uint8 *bytePtr = (uint8*)Val;
 	if(SqQueue_IsFull(Q) == E_OK)
 	{
-		return E_NOT_OK;;
+		return E_NOT_OK;
 	}
     else
     {            
@@ -105,32 +107,38 @@ static void User_UartReceiveCmd(char *pReceivedString)
 void User_UartTask(void)
 {
     /*************Transmit Task************************* */
-	static uint16 TransmitElementsNum = 0;
+	uint16 TransmitElementsNum = 0;
     SqQueue *Q = &User_UartTranmsitQueue;
     QueueElemType elems[NUM_TRANSMIT_MAX_ONCE];//At most Transmit 100 elements
-    switch (emunUartTransmitState)
+    switch (emunUartTransmitCmd)
     {
         case UART_BEGIN_TO_TRANSMIT:
-            while((SqQueue_IsEmpty(Q) == E_NOT_OK) && (TransmitElementsNum < NUM_TRANSMIT_MAX_ONCE))
+//            while((SqQueue_IsEmpty(Q) == E_NOT_OK) && (TransmitElementsNum < NUM_TRANSMIT_MAX_ONCE))
+        	for(;TransmitElementsNum < NUM_TRANSMIT_MAX_ONCE;)
             {
                 if(SqQueue_Pop(Q, &elems[TransmitElementsNum]) == E_OK)
                 {
-                    TransmitElementsNum ++;
+                	count = ++TransmitElementsNum;
+                }
+                else
+                {
+                	break;
                 }
             }
         
-            if(TransmitElementsNum > 0)
+            if(count > 0)
             {
-                Uart_AsyncSend(UART_CONFIG_CHANNEL_0, (uint8*)elems, TransmitElementsNum * Q->bytesNumOfElement);
-                emunUartTransmitState = UART_WAIT_FOR_SEND_COMPLETED;
+                Uart_AsyncSend(UART_CONFIG_CHANNEL_0, (uint8*)elems, (count) * Q->bytesNumOfElement);
+                emunUartTransmitCmd = UART_WAIT_FOR_TRANSMIT_COMPLETED;
             }   
             break; 
         
-        case UART_WAIT_FOR_SEND_COMPLETED:
-            if(uartTxEvent == UART_TRANSMIT_EVENT_COMPLETED)
+        case UART_WAIT_FOR_TRANSMIT_COMPLETED:
+            if(UART_TRANSMIT_EVENT_COMPLETED == uartTxEvent)
             {
-                TransmitElementsNum = 0;
-                emunUartTransmitState = UART_BEGIN_TO_TRANSMIT;
+            	count = 0;
+                emunUartTransmitCmd = UART_BEGIN_TO_TRANSMIT;
+                uartTxEvent = UART_TRANSMIT_NOTHING;
             }
             break;
 
@@ -139,18 +147,18 @@ void User_UartTask(void)
     }
 
     /*************Receive Task************************* */
-    switch(enumUartReceiveState)
+    switch(enumUartReceiveCmd)
     {
         case UART_BEGIN_TO_RECEIVED:
             Uart_AsyncReceive(UART_CONFIG_CHANNEL_0, (uint8 *)User_UartReceiveBuffer, sizeof(User_UartReceiveBuffer));
-            enumUartReceiveState = UART_WAITING_FOR_RECEIVE;
+            enumUartReceiveCmd = UART_WAITING_FOR_RECEIVE;
             break;
         case UART_WAITING_FOR_RECEIVE:
-            if(uartRxEvent == UART_RECEIVE_EVENT_COMPLETED )
+            if(UART_RECEIVE_EVENT_COMPLETED == uartRxEvent )
             {
                 User_UartReceiveCmd(User_UartReceiveBuffer);
                 memset(User_UartReceiveBuffer, 0, sizeof(User_UartReceiveBuffer));
-                enumUartReceiveState = UART_BEGIN_TO_RECEIVED;//begin next receive
+                enumUartReceiveCmd = UART_BEGIN_TO_RECEIVED;//begin next receive
                 uartRxEvent = UART_RECEIVE_NOTHING;
             }
             break;

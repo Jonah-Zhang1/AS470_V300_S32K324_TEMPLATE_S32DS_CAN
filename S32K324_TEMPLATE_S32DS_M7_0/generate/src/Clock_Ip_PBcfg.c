@@ -457,7 +457,7 @@ static const Clock_Ip_DividerConfigType Clock_Ip_DividerConfigurations_0[CLOCK_I
 
     {
         EMAC_RX_CLK,
-        2U,
+        1U,
         {
             0U,
         }
@@ -465,7 +465,7 @@ static const Clock_Ip_DividerConfigType Clock_Ip_DividerConfigurations_0[CLOCK_I
 
     {
         EMAC_TX_CLK,
-        2U,
+        1U,
         {
             0U,
         }
@@ -473,7 +473,7 @@ static const Clock_Ip_DividerConfigType Clock_Ip_DividerConfigurations_0[CLOCK_I
 
     {
         EMAC_TS_CLK,
-        2U,
+        1U,
         {
             0U,
         }

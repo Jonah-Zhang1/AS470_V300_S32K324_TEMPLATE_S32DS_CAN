@@ -11,6 +11,11 @@
         "span": "c",
         "utility": "c",
         "vector": "c",
-        "xstring": "c"
+        "xstring": "c",
+        "standardtypes.h": "c",
+        "platform_types.h": "c",
+        "platformtypes.h": "c",
+        "compiler.h": "c",
+        "queue.h": "c"
     }
 }
