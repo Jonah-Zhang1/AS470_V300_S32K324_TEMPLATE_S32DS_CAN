@@ -113,7 +113,6 @@ void User_Uart_TransmitTask(void)
     switch (emunUartTransmitCmd)
     {
         case UART_BEGIN_TO_TRANSMIT:
-//            while((SqQueue_IsEmpty(Q) == E_NOT_OK) && (TransmitElementsNum < NUM_TRANSMIT_MAX_ONCE))
         	for(;TransmitElementsNum < NUM_TRANSMIT_MAX_ONCE;)
             {
                 if(SqQueue_Pop(Q, &elems[TransmitElementsNum]) == E_OK)

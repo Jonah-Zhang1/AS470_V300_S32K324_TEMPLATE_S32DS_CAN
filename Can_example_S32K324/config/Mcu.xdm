@@ -1350,6 +1350,17 @@
                         <d:var name="McuClockFrequencySelect" 
                                type="ENUMERATION" value="STM0_CLK"/>
                       </d:ctr>
+                      <d:ctr name="AIPS_PLAT_CLK" type="IDENTIFIABLE">
+                        <d:var name="McuClockReferencePointFrequency" 
+                               type="FLOAT" value="8.0E7">
+                          <a:a name="IMPORTER_INFO">
+                            <a:v>@CALC</a:v>
+                            <a:v>@DEF</a:v>
+                          </a:a>
+                        </d:var>
+                        <d:var name="McuClockFrequencySelect" 
+                               type="ENUMERATION" value="AIPS_PLAT_CLK"/>
+                      </d:ctr>
                     </d:lst>
                     <d:ctr name="McuFXOSC" type="IDENTIFIABLE">
                       <a:a name="IMPORTER_INFO" value="Unknown"/>
@@ -2826,12 +2837,7 @@
                             </a:a>
                           </d:var>
                           <d:var name="McuPeripheralClockEnable" type="BOOLEAN" 
-                                 value="false">
-                            <a:a name="IMPORTER_INFO">
-                              <a:v>@DEF</a:v>
-                              <a:v>@CALC</a:v>
-                            </a:a>
-                          </d:var>
+                                 value="true"/>
                         </d:ctr>
                         <d:ctr name="McuPeripheral_52" type="IDENTIFIABLE">
                           <d:var name="McuPeripheralName" type="ENUMERATION" 
@@ -3028,12 +3034,7 @@
                             </a:a>
                           </d:var>
                           <d:var name="McuPeripheralClockEnable" type="BOOLEAN" 
-                                 value="false">
-                            <a:a name="IMPORTER_INFO">
-                              <a:v>@DEF</a:v>
-                              <a:v>@CALC</a:v>
-                            </a:a>
-                          </d:var>
+                                 value="true"/>
                         </d:ctr>
                         <d:ctr name="McuPeripheral_61" type="IDENTIFIABLE">
                           <d:var name="McuPeripheralName" type="ENUMERATION" 
@@ -3051,12 +3052,7 @@
                             </a:a>
                           </d:var>
                           <d:var name="McuPeripheralClockEnable" type="BOOLEAN" 
-                                 value="false">
-                            <a:a name="IMPORTER_INFO">
-                              <a:v>@DEF</a:v>
-                              <a:v>@CALC</a:v>
-                            </a:a>
-                          </d:var>
+                                 value="true"/>
                         </d:ctr>
                         <d:ctr name="McuPeripheral_62" type="IDENTIFIABLE">
                           <d:var name="McuPeripheralName" type="ENUMERATION" 

@@ -2735,16 +2735,20 @@ PORT_CONFIG_PB
 #define PortConf_PortPin_PortPin_MII_TXD3  25
 #define PortConf_PortPin_PortPin_UART6_Tx  26
 #define PortConf_PortPin_PortPin_UART6_Rx  27
+#define PortConf_PortPin_PortPin_I2C0_SDA_EEPROM_PTD13  28
+#define PortConf_PortPin_PortPin_I2C0_SCL_EEPROM_PTD14  29
+#define PortConf_PortPin_PortPin_I2C_SDA_FLEXIO_D11_PTC6  30
+#define PortConf_PortPin_PortPin_I2C_SCL_FLEXIO_D10_PTC7  31
 
 /**
 * @brief The maximum number of configured pins
 */
-#define PORT_MAX_CONFIGURED_PADS_U16   ((uint16)28)
+#define PORT_MAX_CONFIGURED_PADS_U16   ((uint16)32)
 
 /**
 * @brief Number of UnUsed pin array
 */
-#define PORT_MAX_UNUSED_PADS_U16    (186U)
+#define PORT_MAX_UNUSED_PADS_U16    (182U)
 
 /**
 * @brief Port driver Pre-Compile configuration switch
