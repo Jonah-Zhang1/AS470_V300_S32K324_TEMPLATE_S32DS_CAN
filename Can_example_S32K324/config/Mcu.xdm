@@ -508,12 +508,7 @@
                         <d:var name="McuClkMux0Div2Trigger" type="ENUMERATION" 
                                value="COMMON_TRIGGER_DIVIDER_UPDATE"/>
                         <d:var name="McuClockMux0Divider2_Frequency" 
-                               type="FLOAT" value="4.0E7">
-                          <a:a name="IMPORTER_INFO">
-                            <a:v>@CALC</a:v>
-                            <a:v>@DEF</a:v>
-                          </a:a>
-                        </d:var>
+                               type="FLOAT" value="4.0E7"/>
                         <d:var name="McuClkMux0Div3_En" type="BOOLEAN" 
                                value="true">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>

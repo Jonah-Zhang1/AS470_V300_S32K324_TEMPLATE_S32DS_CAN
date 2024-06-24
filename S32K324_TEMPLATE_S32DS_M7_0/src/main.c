@@ -120,16 +120,28 @@ void Task_100ms(void)
         Can1_au8Sdu8bytes,
         sizeof(Can1_au8Sdu8bytes)
     };
-		Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN);
-
-		//Can_DummyDelay(0xfff);
-//		Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE, STD_LOW);
-//		Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN, STD_LOW);
-		//Can_DummyDelay(0xfff);
+//		Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN);
 
 		/*the code below cause: hardfault*/
        CanIf_Transmit(CanIfTxPduCfg_0, &TxPdu_Can0);
        CanIf_Transmit(CanIfTxPduCfg_1, &TxPdu_Can1);
+
+       static unsigned int high = 0;
+
+       if(high <= 10)
+       {
+			high ++;
+			Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN, STD_HIGH);
+       }
+       else if((high > 10) && (high <= 20))
+       {
+			high ++;
+			Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN, STD_LOW);
+       }
+       else
+       {
+    	   high = 0;
+       }
 }
 
 void Task_10ms(void)
@@ -140,8 +152,23 @@ void Task_10ms(void)
 
 void Task_1000ms(void)
 {
-	Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE);
-	Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA30_LED2_GREEN);
+    static unsigned int high = 0;
+    //User_UartPrintString("Task_1000ms!\r\n");
+    //Dio_FlipChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE);
+    if(high <= 10)
+    {
+    	high ++;
+    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE, STD_HIGH);
+    }
+    else if((high > 10) && (high <= 20))
+    {
+    	high ++;
+    	Dio_WriteChannel(DioConf_DioChannel_DioChannel_PTA29_LED1_BLUE, STD_LOW);
+    }
+    else
+    {
+    	high = 0;
+    }
 }
 
 
@@ -153,19 +180,19 @@ void TaskSchedule(void)
     	Task_1000ms();
     }
 
-//    if(t1ms_clk % 100 == 0 )
-//    {
-//        Task_100ms();
-//    }
-//
-//    if(t1ms_clk % 10 == 0)
-//    {
-//    	 Task_10ms();
-//    }
-//    else
-//    {
-//
-//    }
+    if(t1ms_clk % 100 == 0 )
+    {
+        Task_100ms();
+    }
+
+    if(t1ms_clk % 10 == 0)
+    {
+    	 Task_10ms();
+    }
+    else
+    {
+
+    }
 }
 
 boolean CanLPduReceiveCallout(uint8 Hrh, Can_IdType CanId, uint8 CanDataLegth, const uint8* CanSduPtr)
@@ -203,7 +230,7 @@ void LPUART_CallBack(uint8 Channel, Uart_EventType Event)
     }
     else if(UART_EVENT_TX_EMPTY == Event)
     {
-    	//uartTxEvent = UART_TRANSMIT_EVENT_COMPLETED;
+
     }
     else if(UART_EVENT_END_TRANSFER == Event)
 	{
