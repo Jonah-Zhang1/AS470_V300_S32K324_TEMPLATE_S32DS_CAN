@@ -104,7 +104,7 @@ extern "C"
 /**
 * @brief          FLEXIO Channel Used
 */
-#define FLEXIO_I2C_IP_ENABLE   (STD_ON)
+#define FLEXIO_I2C_IP_ENABLE   (STD_OFF)
 
 #if (FLEXIO_I2C_IP_ENABLE == STD_ON)
 

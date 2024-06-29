@@ -123,9 +123,9 @@ extern "C"
 
 
 /* Config structure for channel LPI2C_0 */
-const Lpi2c_Ipw_HwChannelConfigType I2c_Ipw_ChannelConfig1 =
+const Lpi2c_Ipw_HwChannelConfigType I2c_Ipw_ChannelConfig0 =
 {
-    &I2c_Lpi2cMasterChannel1,   
+    &I2c_Lpi2cMasterChannel0,   
     NULL_PTR
 };
 

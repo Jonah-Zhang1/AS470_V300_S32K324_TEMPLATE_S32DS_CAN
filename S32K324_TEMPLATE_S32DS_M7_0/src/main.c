@@ -34,6 +34,8 @@ extern "C" {
 #include "CDD_Uart.h"
 #include "ARP_Transmit.h"
 #include "Queue.h"
+#include "print.h"
+#include "CDD_I2c.h"
 
 /*==================================================================================================
 *                          LOCAL TYPEDEFS (STRUCTURES, UNIONS, ENUMS)
@@ -167,8 +169,9 @@ void Task_1000ms(void)
     }
     else
     {
-    	high = 0;
+    	high = 0;        
     }
+    print("high = %d\r\n", high);
 }
 
 
@@ -244,6 +247,11 @@ void LPUART_CallBack(uint8 Channel, Uart_EventType Event)
     {
 
     }
+}
+
+void I2c_Callback(uint8 Event, uint8 Channel)
+{
+    print("Event: %d, Channel: %d\r\n", Event, Channel);
 }
 /*==================================================================================================
 *                                       LOCAL FUNCTIONS
@@ -353,6 +361,8 @@ int main(void)
 
     Uart_Init(NULL_PTR);
     User_UartInit();
+
+    I2c_Init(NULL_PTR);
 
     Ethernet_Init();
 

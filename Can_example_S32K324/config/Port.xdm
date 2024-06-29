@@ -50,12 +50,8 @@
                     </d:var>
                     <d:lst name="PortPin" type="MAP">
                       <d:ctr name="PTA29_LED1_RED" type="IDENTIFIABLE">
-                        <d:var name="PortPinPue" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="PortPinPus" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                        <d:var name="PortPinPue" type="BOOLEAN" value="true"/>
+                        <d:var name="PortPinPus" type="BOOLEAN" value="true"/>
                         <d:var name="PortPinSafeMode" type="BOOLEAN" 
                                value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -169,12 +165,8 @@
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
                       <d:ctr name="PTA30_LED2_GREEN" type="IDENTIFIABLE">
-                        <d:var name="PortPinPue" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="PortPinPus" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                        <d:var name="PortPinPue" type="BOOLEAN" value="true"/>
+                        <d:var name="PortPinPus" type="BOOLEAN" value="true"/>
                         <d:var name="PortPinSafeMode" type="BOOLEAN" 
                                value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -288,12 +280,8 @@
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
                       <d:ctr name="PTA31_LED3_BLUE" type="IDENTIFIABLE">
-                        <d:var name="PortPinPue" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="PortPinPus" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                        <d:var name="PortPinPue" type="BOOLEAN" value="true"/>
+                        <d:var name="PortPinPus" type="BOOLEAN" value="true"/>
                         <d:var name="PortPinSafeMode" type="BOOLEAN" 
                                value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -407,12 +395,8 @@
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
                       <d:ctr name="PTB18_LED4_YELLOW" type="IDENTIFIABLE">
-                        <d:var name="PortPinPue" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="PortPinPus" type="BOOLEAN" value="false">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
+                        <d:var name="PortPinPue" type="BOOLEAN" value="true"/>
+                        <d:var name="PortPinPus" type="BOOLEAN" value="true"/>
                         <d:var name="PortPinSafeMode" type="BOOLEAN" 
                                value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -1404,7 +1388,8 @@
                       </a:a>
                     </d:var>
                     <d:lst name="PortPin" type="MAP">
-                      <d:ctr name="PortPin_MII_RMII_MDC" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_MDC_PTB5" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -1521,7 +1506,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_MDIO" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_MDIO_PTB4" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -1638,7 +1624,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_RXD0" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_RXD0_PTC1" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -1760,7 +1747,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_RXD1" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_RXD1_PTC0" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -1882,7 +1870,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_TXD0" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_TXD0_PTC2" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -1999,7 +1988,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_TXD1" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_TXD1_PTD7" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2116,7 +2106,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_RXDV" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_RXDV_PTC17" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2238,7 +2229,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_RXER" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_RXER_PTC16" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2360,7 +2352,7 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_RXCLK_REFCLK" 
+                      <d:ctr name="PortPin_MII_RMII_RXCLK_REFCLK_PTD10" 
                              type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
@@ -2483,7 +2475,8 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RMII_TXEN" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RMII_TXEN_PTD12" 
+                             type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2600,7 +2593,7 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_TXCLK" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_TXCLK_PTD11" type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2712,7 +2705,7 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RXD2" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RXD2_PTD9" type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2834,7 +2827,7 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_RXD3" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_RXD3_PTD8" type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -2956,7 +2949,7 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_TXD2" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_TXD2_PTD6" type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>
@@ -3073,7 +3066,7 @@
                         </d:ctr>
                         <d:lst name="PortPinEcucPartitionRef"/>
                       </d:ctr>
-                      <d:ctr name="PortPin_MII_TXD3" type="IDENTIFIABLE">
+                      <d:ctr name="PortPin_MII_TXD3_PTD5" type="IDENTIFIABLE">
                         <d:var name="PortPinPue" type="BOOLEAN" value="false">
                           <a:a name="IMPORTER_INFO" value="@DEF"/>
                         </d:var>

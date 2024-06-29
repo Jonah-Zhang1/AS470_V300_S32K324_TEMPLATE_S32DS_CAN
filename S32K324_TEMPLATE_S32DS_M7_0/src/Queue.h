@@ -5,8 +5,8 @@
 #include "StandardTypes.h"
 #include "CDD_Uart.h"
 #include "Dio.h"
+#include "main.h"
 
-#define UART_CONFIG_CHANNEL_0       (0U)  //zm3 Add 20240613  for UART channel0
 #define NUM_TRANSMIT_MAX_ONCE        (2048U)
 
 #define   QUEUE_STATE_FULL       0xA1

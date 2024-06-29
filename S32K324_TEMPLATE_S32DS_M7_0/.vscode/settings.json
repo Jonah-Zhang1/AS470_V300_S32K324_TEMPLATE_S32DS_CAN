@@ -16,6 +16,9 @@
         "platform_types.h": "c",
         "platformtypes.h": "c",
         "compiler.h": "c",
-        "queue.h": "c"
+        "queue.h": "c",
+        "lpuart_uart_ip.h": "c",
+        "print.h": "c",
+        "main.h": "c"
     }
 }

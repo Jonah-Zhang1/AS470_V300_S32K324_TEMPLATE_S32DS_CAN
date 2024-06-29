@@ -159,33 +159,10 @@ extern "C"
 * @details      Configures the hardware peripheral of an I2c channel.
 *               Configuration set by calling I2c_Init() API.
 */
-static const I2c_HwUnitConfigType I2c_ChannelConfigPB[2] =
+static const I2c_HwUnitConfigType I2c_ChannelConfigPB[1] =
 {
 
     /* Start of I2c_ChannelConfig[0]*/
-    {
-        /* The hardware channel ID. */
-        (I2c_HwUnitType) I2C_FLEXIO_0_CH_0_1,
-
-        /* The Partition Id */
-        (I2c_PartCoreType)I2C_SPURIOUS_CORE_ID,
-
-        /* The master/slave mode of the channel. */
-        I2C_MASTER_MODE,
-
-        /* The hardware channel type */        
-        I2C_FLEXIO_CHANNEL,
-        
-        {            
-                
-            NULL_PTR,
-            &Flexio_I2cMasterChannel0
-                            
-            
-        }
-    }, /* End of I2c_ChannelConfigPB[0]. */
-
-    /* Start of I2c_ChannelConfig[1]*/
     {
         /* The hardware channel ID. */
         (I2c_HwUnitType) I2C_LPI2C_0,
@@ -201,12 +178,10 @@ static const I2c_HwUnitConfigType I2c_ChannelConfigPB[2] =
         
         {            
                 
-            &I2c_Ipw_ChannelConfig1,
-            NULL_PTR
-                            
+            &I2c_Ipw_ChannelConfig0                
             
         }
-    }/* End of I2c_ChannelConfigPB[1]. */
+    }/* End of I2c_ChannelConfigPB[0]. */
 
 };
 

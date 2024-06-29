@@ -1,7 +1,7 @@
 /*
  * main.h
  *
- *  Created on: 2024Äê6ÔÂ22ÈÕ
+ *  Created on: 2024ï¿½ï¿½6ï¿½ï¿½22ï¿½ï¿½
  *      Author: zhang_liu
  */
 
@@ -10,5 +10,7 @@
 
 #define IRQ_ENABLE    __asm__("cpsie i")
 #define IRQ_DISENABLE __asm__("cpsid i")
+
+#define UART_CONFIG_CHANNEL_0       (0U)  //zm3 Add 20240613  for UART channel0
 
 #endif /* MAIN_H_ */

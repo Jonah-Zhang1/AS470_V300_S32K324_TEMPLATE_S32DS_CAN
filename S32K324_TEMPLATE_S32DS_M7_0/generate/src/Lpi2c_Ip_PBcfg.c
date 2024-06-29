@@ -120,7 +120,7 @@ extern "C"
 
 
 /* Baud rate structure for channel LPI2C_0 */
-static const Lpi2c_Ip_BaudRateType baudrateParams1 =
+static const Lpi2c_Ip_BaudRateType baudrateParams0 =
 {
     LPI2C_MASTER_PRESC_DIV_1,    /* Prescaler */
     41U,    /* ClkHI */
@@ -134,7 +134,7 @@ static const Lpi2c_Ip_BaudRateType baudrateParams1 =
 };
 
 /* Channel configuration for channel LPI2C_0 - configured as master */
-const Lpi2c_Ip_MasterConfigType I2c_Lpi2cMasterChannel1 =
+const Lpi2c_Ip_MasterConfigType I2c_Lpi2cMasterChannel0 =
 {
     /* Slave address */
      0U,
@@ -146,7 +146,7 @@ const Lpi2c_Ip_MasterConfigType I2c_Lpi2cMasterChannel1 =
     LPI2C_STANDARD_MODE,
 
     /* Baudrate parameters */
-    &baudrateParams1,
+    &baudrateParams0,
 
     /* Pin Low Timeout */
     0U,
@@ -179,7 +179,7 @@ const Lpi2c_Ip_MasterConfigType I2c_Lpi2cMasterChannel1 =
     NULL_PTR,
 
     /* Master Callback Parameter */
-    1U,
+    0U,
 
     /*  Master State index */
     0U,

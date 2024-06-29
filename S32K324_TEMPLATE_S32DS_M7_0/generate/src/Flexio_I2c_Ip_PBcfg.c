@@ -102,53 +102,6 @@ extern "C"
 *                                      GLOBAL CONSTANTS
 ==================================================================================================*/
 
-#define I2C_START_SEC_CONFIG_DATA_UNSPECIFIED
-#include "I2c_MemMap.h"
-
-
-
-/* Channel configuration for channel FLEXIO_0_CH_0_1 - configured as master */
-Flexio_I2c_Ip_MasterConfigType Flexio_I2cMasterChannel0 =
-{
-
-    /* Slave address */
-    0U,
-    /* Transfer Type */
-    FLEXIO_I2C_USING_INTERRUPTS,
-    /* Baud rate in hertz */
-    (uint32)59523.80952380953,
-    /* I2c flexio compare value */
-    41,
-    /* I2cFlexIOChannelPrescaler */
-
-    FLEXIO_TMR_DECREMENT_ON_FLEXIO_CLK_DIV_16,
-
-    /* I2c flexio sda pin */
-    11U,
-    /* I2c flexio scl pin */
-    10U,
-    /* Master Callback */
-    NULL_PTR,
-    /* I2c Master Callback Parameter */
-    0U,
-    /* FlexIO device instance number */
-    0U,
-    /* Index of first used internal resource instance (shifter and timer) */
-    0U,
-    
-    /* DMA rx channel */
-    0U,
-    /* DMA tx channel */
-    0U,
-    
-    /* Master state index */
-    0U
-};
-    
-
-#define I2C_STOP_SEC_CONFIG_DATA_UNSPECIFIED
-#include "I2c_MemMap.h"
-
 /*==================================================================================================
 *                                      GLOBAL VARIABLES
 ==================================================================================================*/

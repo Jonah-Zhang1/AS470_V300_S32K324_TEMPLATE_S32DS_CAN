@@ -113,7 +113,7 @@ extern "C"
 /**
 * @brief   Total number of I2c channel configured.
 */
-#define I2C_HW_MAX_CONFIG           (2U)
+#define I2C_HW_MAX_CONFIG           (1U)
 
 
 /**
@@ -148,8 +148,6 @@ extern "C"
 
 #define I2C_LPI2C_0     0U
                 
-#define I2C_FLEXIO_0_CH_0_1     2U
-                
 
 
 /**
@@ -160,19 +158,18 @@ extern "C"
 /**
 * @brief          Symbolic names for configured channels.
 */
-#define I2cConf_I2cChannel_I2cChannel_0         0
-#define I2cConf_I2cChannel_I2cChannel_1         1
+#define I2cConf_I2cChannel_I2cChannel_1         0
 
 /**
 * @brief          FLEXIO Channel Used
 */
-#define I2C_FLEXIO_USED   (STD_ON)
+#define I2C_FLEXIO_USED   (STD_OFF)
 
 
 /**
 * @brief            Enable/Disable the API for reporting the Dem Error.
 */
-#define I2C_DISABLE_DEM_REPORT_ERROR_STATUS    (STD_OFF)
+#define I2C_DISABLE_DEM_REPORT_ERROR_STATUS    (STD_ON)
 
 /**
 * @brief            Enable/Disable Multi Core Support.

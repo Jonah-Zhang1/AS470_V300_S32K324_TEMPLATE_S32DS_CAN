@@ -109,7 +109,7 @@ extern "C"
 
 
 /* Channel configuration for channel LPI2C_0 - configured as master */
-extern const Lpi2c_Ip_MasterConfigType I2c_Lpi2cMasterChannel1;
+extern const Lpi2c_Ip_MasterConfigType I2c_Lpi2cMasterChannel0;
 
 
 #define I2C_STOP_SEC_CONFIG_DATA_UNSPECIFIED

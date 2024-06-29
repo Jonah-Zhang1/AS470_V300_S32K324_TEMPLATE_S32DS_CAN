@@ -26,17 +26,13 @@
                 <a:a name="IMPORTER_INFO" value="@DEF"/>
               </d:var>
               <d:ctr name="GeneralConfiguration" type="IDENTIFIABLE">
-                <d:var name="I2cDevErrorDetect" type="BOOLEAN" value="true">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                <d:var name="I2cDevErrorDetect" type="BOOLEAN" value="true"/>
                 <d:var name="I2cDmaTransferErrorDetect" type="BOOLEAN" 
                        value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:var>
                 <d:var name="I2cDisableDemReportErrorStatus" type="BOOLEAN" 
-                       value="false">
-                  <a:a name="IMPORTER_INFO" value="@DEF"/>
-                </d:var>
+                       value="true"/>
                 <d:var name="I2cMulticoreSupport" type="BOOLEAN" value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:var>
@@ -50,7 +46,7 @@
                        value="false">
                   <a:a name="IMPORTER_INFO" value="@DEF"/>
                 </d:var>
-                <d:var name="I2cFlexIOUsed" type="BOOLEAN" value="true"/>
+                <d:var name="I2cFlexIOUsed" type="BOOLEAN" value="false"/>
                 <d:var name="I2cTimeoutDuration" type="INTEGER" value="65535"/>
                 <d:var name="I2cTimeoutMethod" type="ENUMERATION" 
                        value="OSIF_COUNTER_DUMMY">
@@ -73,185 +69,12 @@
                 <d:ctr name="I2cFlexIOModuleConfiguration" type="IDENTIFIABLE">
                   <d:ref name="I2cClockRef" type="REFERENCE" 
                          value="ASPath:/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/AIPS_PLAT_CLK">
-                    <a:a name="ENABLE" value="true"/>
+                    <a:a name="ENABLE" value="false"/>
                   </d:ref>
                 </d:ctr>
                 <d:lst name="I2cChannel" type="MAP">
-                  <d:ctr name="I2cChannel_0" type="IDENTIFIABLE">
-                    <d:var name="I2cChannelId" type="INTEGER" value="0">
-                      <a:a name="IMPORTER_INFO">
-                        <a:v>@DEF</a:v>
-                        <a:v>@CALC</a:v>
-                      </a:a>
-                    </d:var>
-                    <d:var name="I2cHwChannel" type="ENUMERATION" 
-                           value="FLEXIO_0_CH_0_1"/>
-                    <d:var name="I2cMasterSlaveConfiguration" 
-                           type="ENUMERATION" value="MASTER_MODE">
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
-                    </d:var>
-                    <d:var name="I2cOperatingMode" type="ENUMERATION" 
-                           value="LPI2C_STANDARD_MODE">
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
-                    </d:var>
-                    <d:ref name="I2cChannelEcucPartitionRef" type="REFERENCE" >
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
-                    </d:ref>
-                    <d:ctr name="I2cMasterConfiguration" type="IDENTIFIABLE">
-                      <d:ref name="I2cClockRef" type="REFERENCE" 
-                             value="ASPath:/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/AIPS_SLOW_CLK">
-                        <a:a name="ENABLE" value="true"/>
-                      </d:ref>
-                      <d:var name="I2cAsyncMethod" type="ENUMERATION" 
-                             value="LPI2C_USING_INTERRUPTS">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:ref name="I2cDmaTxChannelRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:ref name="I2cDmaRxChannelRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:var name="I2cPrescaler" type="ENUMERATION" 
-                             value="LPI2C_MASTER_PRESC_DIV_1">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cGlitchFilterSDA" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cGlitchFilterSCL" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cPinLowTimeout" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cBusIdleTimeout" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cDataValidDelay" type="INTEGER" value="1">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cSetupHoldDelay" type="INTEGER" value="2">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cClockHighPeriod" type="INTEGER" value="1">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cClockLowPeriod" type="INTEGER" value="3">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cBaudRate" type="FLOAT" value="0.0">
-                        <a:a name="IMPORTER_INFO">
-                          <a:v>@DEF</a:v>
-                          <a:v>@CALC</a:v>
-                        </a:a>
-                      </d:var>
-                      <d:ctr name="I2cHighSpeedModeConfiguration" 
-                             type="IDENTIFIABLE">
-                        <d:var name="I2cMasterCode" type="INTEGER" value="0">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="I2cDataValidDelay" type="INTEGER" value="1">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="I2cSetupHoldDelay" type="INTEGER" value="2">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="I2cClockHighPeriod" type="INTEGER" 
-                               value="1">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="I2cClockLowPeriod" type="INTEGER" value="3">
-                          <a:a name="IMPORTER_INFO" value="@DEF"/>
-                        </d:var>
-                        <d:var name="I2cHighSpeedBaudRate" type="FLOAT" 
-                               value="0.0">
-                          <a:a name="IMPORTER_INFO">
-                            <a:v>@DEF</a:v>
-                            <a:v>@CALC</a:v>
-                          </a:a>
-                        </d:var>
-                      </d:ctr>
-                    </d:ctr>
-                    <d:ctr name="I2cSlaveConfiguration" type="IDENTIFIABLE">
-                      <d:var name="I2cSlaveAddress" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cSlaveIs10BitAddress" type="BOOLEAN" 
-                             value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="Lpi2cSlaveListening" type="BOOLEAN" 
-                             value="false">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cAsyncMethod" type="ENUMERATION" 
-                             value="LPI2C_USING_INTERRUPTS">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:ref name="I2cSlaveDmaTxChannelRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:ref name="I2cSlaveDmaRxChannelRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:var name="I2cSlaveFilterEnable" type="BOOLEAN" 
-                             value="true">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cGlitchFilterSDA" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:var name="I2cGlitchFilterSCL" type="INTEGER" value="0">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                    </d:ctr>
-                    <d:ctr name="I2cFlexIOConfiguration" type="IDENTIFIABLE">
-                      <d:var name="I2cAsyncMethod" type="ENUMERATION" 
-                             value="FLEXIO_I2C_USING_INTERRUPTS">
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:var>
-                      <d:ref name="I2cDmaTxChannelRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:ref name="I2cDmaRxChannelRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:ref name="I2cTimerDmaRef" type="REFERENCE" >
-                        <a:a name="ENABLE" value="false"/>
-                        <a:a name="IMPORTER_INFO" value="@DEF"/>
-                      </d:ref>
-                      <d:ref name="SclFlexioRef" type="REFERENCE" 
-                             value="ASPath:/Mcl/Mcl/MclConfig/FlexioCommon_0/FlexioMclLogicChannels_0"/>
-                      <d:ref name="SdaFlexioRef" type="REFERENCE" 
-                             value="ASPath:/Mcl/Mcl/MclConfig/FlexioCommon_0/FlexioMclLogicChannels_1"/>
-                      <d:var name="I2cFlexIOCompareValue" type="INTEGER" 
-                             value="41"/>
-                      <d:var name="I2cFlexIOChannelPrescaler" 
-                             type="ENUMERATION" value="DIV_16"/>
-                      <d:var name="I2cBaudRate" type="FLOAT" 
-                             value="59523.80952380953">
-                        <a:a name="IMPORTER_INFO">
-                          <a:v>@CALC</a:v>
-                          <a:v>@DEF</a:v>
-                        </a:a>
-                      </d:var>
-                    </d:ctr>
-                  </d:ctr>
                   <d:ctr name="I2cChannel_1" type="IDENTIFIABLE">
-                    <d:var name="I2cChannelId" type="INTEGER" value="1">
-                      <a:a name="IMPORTER_INFO">
-                        <a:v>@DEF</a:v>
-                        <a:v>@CALC</a:v>
-                      </a:a>
-                    </d:var>
+                    <d:var name="I2cChannelId" type="INTEGER" value="0"/>
                     <d:var name="I2cHwChannel" type="ENUMERATION" 
                            value="LPI2C_0"/>
                     <d:var name="I2cMasterSlaveConfiguration" 
@@ -414,7 +237,6 @@
                   <a:a name="ENABLE" value="false"/>
                   <d:ref name="I2C_E_TIMEOUT_FAILURE" type="REFERENCE" >
                     <a:a name="ENABLE" value="false"/>
-                    <a:a name="IMPORTER_INFO" value="@DEF"/>
                   </d:ref>
                 </d:ctr>
               </d:ctr>

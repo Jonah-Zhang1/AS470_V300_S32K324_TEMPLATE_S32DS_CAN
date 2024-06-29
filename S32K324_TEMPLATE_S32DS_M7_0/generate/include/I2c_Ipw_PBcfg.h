@@ -94,7 +94,7 @@ extern "C"
 
 
 
-extern const Lpi2c_Ipw_HwChannelConfigType I2c_Ipw_ChannelConfig1;
+extern const Lpi2c_Ipw_HwChannelConfigType I2c_Ipw_ChannelConfig0;
 
 
 #define I2C_STOP_SEC_CONFIG_DATA_UNSPECIFIED

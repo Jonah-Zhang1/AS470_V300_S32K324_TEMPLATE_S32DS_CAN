@@ -113,7 +113,7 @@ extern "C"
 *                                       LOCAL MACROS
 ==================================================================================================*/
 
-#define FLEXIO_I2C_IP_NUM_MASTER_USED 1U
+#define FLEXIO_I2C_IP_NUM_MASTER_USED 0U
 /*==================================================================================================
 *                                      LOCAL VARIABLES
 ==================================================================================================*/
@@ -122,16 +122,6 @@ extern "C"
 *                                      GLOBAL CONSTANTS
 ==================================================================================================*/
 
-
-
-#define I2C_START_SEC_CONFIG_DATA_UNSPECIFIED
-#include "I2c_MemMap.h"
-
-/* Channel configuration for channel FLEXIO_0_CH_0_1 - configured as master */
-extern Flexio_I2c_Ip_MasterConfigType Flexio_I2cMasterChannel0;
-
-#define I2C_STOP_SEC_CONFIG_DATA_UNSPECIFIED
-#include "I2c_MemMap.h"
 
 /*==================================================================================================
 *                                      GLOBAL VARIABLES

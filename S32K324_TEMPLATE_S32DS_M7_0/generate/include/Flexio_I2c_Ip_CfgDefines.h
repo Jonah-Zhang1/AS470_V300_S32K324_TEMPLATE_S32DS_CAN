@@ -88,48 +88,6 @@ extern "C"
 #define I2C_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "I2c_MemMap.h"
 
-
-
-/* Macros that indicate FLEXIO channels used by I2C */
-
-#ifndef FLEXIO_0_CH_0_USED
-    #define FLEXIO_0_CH_0_USED
-#else
-    #error "CHANNEL_0 cannot be used by I2C driver. Channel locked by another driver"
-#endif
-
-#ifdef FLEXIO_0_CH_0_USED
-    #define I2C_CHANNEL_0_USED
-#else
-    #error "CHANNEL_0 cannot be used by I2C driver. Channel locked by another driver"
-#endif
-
-#ifndef FLEXIO_0_CH_1_USED
-    #define FLEXIO_0_CH_1_USED
-#else
-    #error "CHANNEL_1 cannot be used by I2C driver. Channel locked by another driver"
-#endif
-
-#ifdef FLEXIO_0_CH_1_USED
-    #define I2C_CHANNEL_1_USED
-#else
-    #error "CHANNEL_1 cannot be used by I2C driver. Channel locked by another driver"
-#endif
-
-/*Macros that indicate FLEXIO pins used by I2C */
-
-#ifndef FLEXIO_0_PIN_10_USED
-    #define FLEXIO_0_PIN_10_USED
-#else
-    #error "PIN_10 cannot be used by I2C driver. Pin used by another driver!"
-#endif
-
-#ifndef FLEXIO_0_PIN_11_USED
-    #define FLEXIO_0_PIN_11_USED
-#else
-    #error "PIN_11 cannot be used by I2C driver. Pin used by another driver!"
-#endif
-
 #define I2C_STOP_SEC_CONFIG_DATA_UNSPECIFIED
 #include "I2c_MemMap.h"
 /*==================================================================================================
