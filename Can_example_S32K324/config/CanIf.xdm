@@ -75,14 +75,12 @@
                       </a:a>
                     </d:var>
                     <d:var name="CanIfTxPduUserTxConfirmationName" 
-                           type="FUNCTION-NAME" value="NULL_PTR">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                           type="FUNCTION-NAME" value="CDD_TxConfirmation">
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:var name="CanIfTxPduUserTxConfirmationUL" 
                            type="ENUMERATION" value="CDD">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:ref name="CanIfTxPduBufferRef" type="REFERENCE" 
                            value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfBufferCfg_0"/>
@@ -102,14 +100,12 @@
                       </a:a>
                     </d:var>
                     <d:var name="CanIfTxPduUserTxConfirmationName" 
-                           type="FUNCTION-NAME" value="NULL_PTR">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                           type="FUNCTION-NAME" value="CDD_TxConfirmation">
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:var name="CanIfTxPduUserTxConfirmationUL" 
                            type="ENUMERATION" value="CDD">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:ref name="CanIfTxPduBufferRef" type="REFERENCE" 
                            value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfBufferCfg_1"/>
@@ -133,14 +129,12 @@
                       <a:a name="IMPORTER_INFO" value="@DEF"/>
                     </d:var>
                     <d:var name="CanIfRxPduUserRxIndicationName" 
-                           type="FUNCTION-NAME" value="NULL_PTR">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                           type="FUNCTION-NAME" value="CDD_RxIndication">
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:var name="CanIfRxPduUserRxIndicationUL" 
                            type="ENUMERATION" value="CDD">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:ref name="CanIfRxPduHrhIdRef" type="REFERENCE" 
                            value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfInitHohCfg_0/CanIfHrhCfg_0"/>
@@ -162,14 +156,12 @@
                       <a:a name="IMPORTER_INFO" value="@DEF"/>
                     </d:var>
                     <d:var name="CanIfRxPduUserRxIndicationName" 
-                           type="FUNCTION-NAME" value="NULL_PTR">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                           type="FUNCTION-NAME" value="CDD_RxIndication">
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:var name="CanIfRxPduUserRxIndicationUL" 
                            type="ENUMERATION" value="CDD">
-                      <a:a name="ENABLE" value="false"/>
-                      <a:a name="IMPORTER_INFO" value="@DEF"/>
+                      <a:a name="ENABLE" value="true"/>
                     </d:var>
                     <d:ref name="CanIfRxPduHrhIdRef" type="REFERENCE" 
                            value="ASPath:/CanIf/CanIf/CanIfInitCfg/CanIfInitHohCfg_1/CanIfHrhCfg_0"/>

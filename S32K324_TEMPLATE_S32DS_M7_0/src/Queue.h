@@ -7,7 +7,14 @@
 #include "Dio.h"
 #include "main.h"
 
+#include <stdio.h>
+#include <string.h>
+#include "stdarg.h"
+#include <stdint.h>
+#include <stdbool.h>
+
 #define NUM_TRANSMIT_MAX_ONCE        (2048U)
+#define print                        User_UartPrintString
 
 #define   QUEUE_STATE_FULL       0xA1
 #define   QUEUE_STATE_EMPTY      0xA2
@@ -50,7 +57,7 @@ typedef enum
  ***************************************/
 typedef uint8 QueueElemType;
 
-void User_UartPrintString(const char *string);
+void User_UartPrintString(char* fmt,...);
 
 void User_UartInit(void);
 void User_UartTask(void);

@@ -176,6 +176,7 @@ void  User_UartTask(void)
 	User_Uart_ReceiveTask();
 }
 
+#if 0
 void User_UartPrintString(const char *string)
 {
 	IRQ_DISENABLE;//disable all interrupt
@@ -186,5 +187,24 @@ void User_UartPrintString(const char *string)
         SqQueue_Push(&User_UartTranmsitQueue, (uint8*)(&string[i]));
     }
 
+    IRQ_ENABLE;//enable all interrupt
+}
+#endif
+
+static char USART_TX_BUF[200];
+
+void User_UartPrintString(char* fmt,...)
+{
+	IRQ_DISENABLE;//disable all interrupt
+    va_list ap;
+    va_start(ap,fmt);
+    vsprintf((char*)USART_TX_BUF,fmt,ap);
+    va_end(ap);
+
+    uint16 len = strlen(USART_TX_BUF);
+    for(uint16 i = 0; i < len; i++)
+    {
+        SqQueue_Push(&User_UartTranmsitQueue, (uint8*)(&USART_TX_BUF[i]));
+    }
     IRQ_ENABLE;//enable all interrupt
 }

@@ -95,7 +95,7 @@ static const CanIf_TxPduType CanIf_TxPdu[2U] =
         /* .CanIfCtrlId */
         (uint8)0U,
         /* .UserTxConfirmation */
-        NULL_PTR
+        CDD_TxConfirmation
     },
     {
         /* .PduIdType */
@@ -109,7 +109,7 @@ static const CanIf_TxPduType CanIf_TxPdu[2U] =
         /* .CanIfCtrlId */
         (uint8)1U,
         /* .UserTxConfirmation */
-        NULL_PTR
+        CDD_TxConfirmation
     }
 };
 
@@ -126,7 +126,7 @@ static const CanIf_RxPduType CanIf_RxPdu[2U] =
         /* .CanIfCtrlId */
         (uint8)0U,
         /* .UserRxIndication */
-        NULL_PTR
+        CDD_RxIndication
     },
     {
         /* .PduId */
@@ -138,7 +138,7 @@ static const CanIf_RxPduType CanIf_RxPdu[2U] =
         /* .CanIfCtrlId */
         (uint8)1U,
         /* .UserRxIndication */
-        NULL_PTR
+        CDD_RxIndication
     }
 };
 

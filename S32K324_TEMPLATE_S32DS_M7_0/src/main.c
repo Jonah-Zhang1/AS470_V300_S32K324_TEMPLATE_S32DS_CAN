@@ -34,7 +34,6 @@ extern "C" {
 #include "CDD_Uart.h"
 #include "ARP_Transmit.h"
 #include "Queue.h"
-#include "print.h"
 #include "CDD_I2c.h"
 
 /*==================================================================================================

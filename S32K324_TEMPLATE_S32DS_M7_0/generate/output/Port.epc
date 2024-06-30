@@ -474,7 +474,7 @@
                   </PARAMETER-VALUES>
                   <SUB-CONTAINERS>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_MDC</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_MDC_PTB5</SHORT-NAME>
                       <INDEX>0</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -565,7 +565,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_MDIO</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_MDIO_PTB4</SHORT-NAME>
                       <INDEX>1</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -656,7 +656,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_RXD0</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_RXD0_PTC1</SHORT-NAME>
                       <INDEX>2</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -747,7 +747,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_RXD1</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_RXD1_PTC0</SHORT-NAME>
                       <INDEX>3</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -838,7 +838,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_TXD0</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_TXD0_PTC2</SHORT-NAME>
                       <INDEX>4</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -929,7 +929,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_TXD1</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_TXD1_PTD7</SHORT-NAME>
                       <INDEX>5</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1020,7 +1020,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_RXDV</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_RXDV_PTC17</SHORT-NAME>
                       <INDEX>6</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1111,7 +1111,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_RXER</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_RXER_PTC16</SHORT-NAME>
                       <INDEX>7</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1202,7 +1202,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_RXCLK_REFCLK</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_RXCLK_REFCLK_PTD10</SHORT-NAME>
                       <INDEX>8</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1293,7 +1293,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RMII_TXEN</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RMII_TXEN_PTD12</SHORT-NAME>
                       <INDEX>9</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1384,7 +1384,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_TXCLK</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_TXCLK_PTD11</SHORT-NAME>
                       <INDEX>10</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1475,7 +1475,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RXD2</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RXD2_PTD9</SHORT-NAME>
                       <INDEX>11</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1566,7 +1566,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_RXD3</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_RXD3_PTD8</SHORT-NAME>
                       <INDEX>12</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1657,7 +1657,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_TXD2</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_TXD2_PTD6</SHORT-NAME>
                       <INDEX>13</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
@@ -1748,7 +1748,7 @@
                       </PARAMETER-VALUES>
                     </ECUC-CONTAINER-VALUE>
                     <ECUC-CONTAINER-VALUE>
-                      <SHORT-NAME>PortPin_MII_TXD3</SHORT-NAME>
+                      <SHORT-NAME>PortPin_MII_TXD3_PTD5</SHORT-NAME>
                       <INDEX>14</INDEX>
                       <DEFINITION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/TS_T40D34M30I0R0/Port/PortConfigSet/PortContainer/PortPin</DEFINITION-REF>
                       <PARAMETER-VALUES>
